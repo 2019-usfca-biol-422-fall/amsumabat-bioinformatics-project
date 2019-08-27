@@ -8,3 +8,15 @@ output: word_document
 # Overview of Proposed Project 
 
 My plan for this semester-long project is to analyze the microbiome of used kitchen sponges. I will be comparing kitchen sponges used in my personal kitchen with used kitchen sponges that are used for employees at my work. In my personal kitchen at home, sponges are used to clean dishes and utensils that have been used for eating and preparing meals. I work at a retail store where we are provided sponges in our breakroom to allow for us to clean our tupperwares. 
+
+# Study Design
+
+I will swab the surface of used sponges from my home as well as swab the surface of used sponges in the breakroom of my work. I will compare and contrast the bacteria found from the samples I have taken. 
+
+# Question 
+
+The questions that I will be working to address is, "Does the environment have an affect on the microbiome of used kitchen sponges?" 
+
+# Hypothesis 
+
+The sponge used in my personal kitchen will have a more diverse microbiome than the sponge used in the breakroom of my work. 
