@@ -11,11 +11,7 @@ bibliography: references.bib
 
 My plan for this semester-long project is to analyze the microbiome of used sponges. I will be comparing kitchen sponges used in my personal kitchen with used kitchen sponges that are used by employees in the breakroom at my work. In my personal kitchen at home, sponges are used to clean dishes and utensils that have been used for eating and preparing meals. I work at a retail store where we are provided sponges in our breakroom to allow for us to clean our tupperwares. 
 
-Research has shown that kitchen environments are prone to harboring bacteria due to food handling and direct contact to humans. [@cardinale2017microbiome] 
-
-There is also research that states the possibility of foodborne pathogens, such as Salmonella, surviving washes and being able to transfer to other surfaces wherein which humans can come to direct contact with. [@mattick2003survival] This is important to know because this research can allow us to ensure that there is no contamination of bacteria that have the potential to cause illnesses. 
-
-The main source of bacteria found in kitchen environment comes from food. Aside from food skin is said to be a major source of baceteria found in kitchen environments. [@flores2013diversity]  In the breakroom of my work, there are close to 100 people handling the same sponge. That same sponge is used to clean all sorts of dishes that have contained a variety of food. In my kitchen, the number of people handling the sponge is limited to only the 6 people in my family.
+Research has shown that kitchen environments are prone to harboring bacteria due to food handling and direct contact to humans. [@cardinale2017microbiome] There is also research that states the possibility of foodborne pathogens, such as Salmonella, surviving washes and being able to transfer to other surfaces wherein which humans can come to direct contact with. [@mattick2003survival] The main source of bacteria found in kitchen environment comes from food. Aside from food skin is said to be a major source of baceteria found in kitchen environments. [@flores2013diversity]  In the breakroom of my work, there are close to 100 people handling the same sponge. That same sponge is used to clean all sorts of dishes that have contained a variety of food. In my kitchen, the number of people handling the sponge is limited to only the 6 people in my family.
 
 # Study Design
 
