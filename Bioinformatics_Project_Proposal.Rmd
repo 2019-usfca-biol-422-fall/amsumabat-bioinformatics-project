@@ -7,4 +7,4 @@ output: word_document
 
 # Overview of Proposed Project 
 
-The project that 
+My plan for this semester-long project is to analyze the microbiome of used kitchen sponges. I will be comparing kitchen sponges used in my personal kitchen with used kitchen sponges that are used for employees at my work. In my personal kitchen at home, sponges are used to clean dishes and utensils that have been used for eating and preparing meals. I work at a retail store where we are provided sponges in our breakroom to allow for us to clean our tupperwares. 
