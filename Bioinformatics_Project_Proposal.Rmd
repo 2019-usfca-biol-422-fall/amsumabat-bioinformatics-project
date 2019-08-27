@@ -13,7 +13,9 @@ My plan for this semester-long project is to analyze the microbiome of used kitc
 
 Research has shown that kitchen environments are prone to harboring bacteria due to food handling and direct contact to humans [@cardinale2017microbiome] 
 
-There is also research that states the possibility of foodborn pathogens surviving washes and being able to transfer to other surfaces wherein which humans can come to direct contact with [@mattick2003survival]
+There is also research that states the possibility of foodborne pathogens, such as Salmonella, surviving washes and being able to transfer to other surfaces wherein which humans can come to direct contact with [@mattick2003survival]
+
+The main source of bacteria found in kitchen environment comes from food. Aside from food skin is said to be a major source of baceteria found in kitchen environments. [@flores2013diversity] 
 
 # Study Design
 
@@ -21,8 +23,8 @@ I will swab the surface of used sponges from my home as well as swab the surface
 
 # Question 
 
-The questions that I will be working to address is, "Does the environment have an affect on the microbiome of used kitchen sponges?" 
+The question that I will be working to address is, "Does the number of people getting in contact with a used sponge affect the diversity of the microbiome that is found?" 
 
 # Hypothesis 
 
-The sponge used in my personal kitchen will have a more diverse microbiome than the sponge used in the breakroom of my work. 
+The sponge used in the breakroom of my work will have a more diverse microbiome than the sponge used in a personal kitchen. 
