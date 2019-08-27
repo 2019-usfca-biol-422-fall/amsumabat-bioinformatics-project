@@ -4,14 +4,14 @@ author: "Adelle Sumabat"
 date: "8/27/2019"
 output: word_document
 csl: bioinformatics.csl
-bibliography: reference.bib
+bibliography: references.bib
 ---
 
 # Overview of Proposed Project 
 
 My plan for this semester-long project is to analyze the microbiome of used kitchen sponges. I will be comparing kitchen sponges used in my personal kitchen with used kitchen sponges that are used for employees at my work. In my personal kitchen at home, sponges are used to clean dishes and utensils that have been used for eating and preparing meals. I work at a retail store where we are provided sponges in our breakroom to allow for us to clean our tupperwares. 
 
-Research has shown that kitchen environments are prone to harboring bacteria due to food handling and direct contact to humans. 
+Research has shown that kitchen environments are prone to harboring bacteria due to food handling and direct contact to humans [@cardinale2017microbiome] 
 
 # Study Design
 
