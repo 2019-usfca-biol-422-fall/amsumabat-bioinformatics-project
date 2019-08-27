@@ -1,7 +1,10 @@
 ---
 title: "Your Title Here"
-author: "Don Francisco"
+author: "Adelle Sumabat"
 date: "8/27/2019"
 output: word_document
 ---
 
+# Overview of Proposed Project 
+
+The project that 
