@@ -13,6 +13,8 @@ My plan for this semester-long project is to analyze the microbiome of used kitc
 
 Research has shown that kitchen environments are prone to harboring bacteria due to food handling and direct contact to humans [@cardinale2017microbiome] 
 
+There is also research that states the possibility of foodborn pathogens surviving washes and being able to transfer to other surfaces wherein which humans can come to direct contact with [@mattick2003survival]
+
 # Study Design
 
 I will swab the surface of used sponges from my home as well as swab the surface of used sponges in the breakroom of my work. I will compare and contrast the bacteria found from the samples I have taken. 
