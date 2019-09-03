@@ -9,21 +9,23 @@ bibliography: references.bib
 
 # Overview of Proposed Project 
 
-My plan for this semester-long project is to analyze the microbiome of used sponges. I will be comparing kitchen sponges used in my personal kitchen with used kitchen sponges that are used by employees in the breakroom at my work. In my personal kitchen at home, sponges are used to clean dishes and utensils that have been used for eating and preparing meals. I work at a retail store where we are provided sponges in our breakroom to allow for us to clean our tupperwares. 
+My plan for this semester-long project is to analyze the microbiome of used sinks. I will compare the microbiome of bathroom sinks from houses and compare them to the microbiome of sinks in a workplace. 
 
-Research has shown that kitchen environments are prone to harboring bacteria due to food handling and direct contact to humans. [@cardinale2017microbiome] There is also research that states the possibility of foodborne pathogens, such as Salmonella, surviving washes and being able to transfer to other surfaces wherein which humans can come to direct contact with. [@mattick2003survival] The main source of bacteria found in kitchen environment comes from food. Aside from food skin is said to be a major source of baceteria found in kitchen environments. [@flores2013diversity]  In the breakroom of my work, there are close to 100 people handling the same sponge. That same sponge is used to clean all sorts of dishes that have contained a variety of food. In my kitchen, the number of people handling the sponge is limited to only the 6 people in my family.
+Bacteria is found in high cincentrations in built environments. It has been found that bathrooms contain a higher concentration for bacteria than kitchens due to bathrooms being a less ventilated and moist environment. [@ojima2002hygiene] Research has shown that the highest concentration of bacteria in residential homes are found in moist areas such as bathroom sinks. [@rusin1998reduction] Human occupancy and human contact can have an affect on the community and microbiome of a surface area. [@ramos2014tools] 
+
+This research is important because we spend most of our time indoors and especially in our homes. Being constantly exposed to the bacteria in our homes or workplaces can greatly influence our health. By knowing how much bacteria is in a certain place we come into close contact with, such as bathroom sinks, we can then find ways of reducing any contamination that could lead to possible illness. 
 
 # Study Design
 
-I will swab the surface of used sponges from my home as well as swab the surface of used sponges in the breakroom of my work. I will culture the bacteria from the obtained samples and compare and contrast the bacteria found from the samples I have taken. 
+I will swab the drains of bathroom sinks from three different homes as well as the drains of restroom sinks in three different workplaces. After collecting my samples, I will analyze and compare the microbiome I obatined from each sample.
 
 # Question 
 
-The question that I will be working to address is, "Does the number of people getting in contact with a used sponge affect the diversity of the microbiome that is found within it?" 
+The question that I will be working to address is, "Does the number of people getting in contact with a bathroom sink affect the diversity of the microbiome that is found within it?" 
 
 # Hypothesis 
 
-The sponge used in the breakroom of my work will have a more diverse microbiome than the sponge used in a personal kitchen. 
+The bathroom sinks in workplaces will have a more diverse microbiome than the bathroom sink in a residential home. 
 
 # Materials  
 
@@ -31,16 +33,18 @@ The sponge used in the breakroom of my work will have a more diverse microbiome 
 
 * 6 sterile tubes with sterile buffer 
 
-* used sponge from personal kitchen at home 
+* bathroom sinks from three different homes
 
-* used sponge from breakroom at my work 
+* bathroom sinks from three different workplaces 
 
 # Methods 
 
-1. I will obtain my samples for this project during my one-hour break before class on Tuesday. I may take more than my one hour break and will possibly be late by approximately 30 minutes - 1 hour. 
-2. Swab the surface of a used sponge from personal kitchen at home. 
-3. Repeat two more times to obtain a total of three samples from the same sponge.
-4. Swab the surface of a used sponge from the breakroom of my work.
-5. Repeat two more times to obtain a total of three samples from the same sponge. 
-6. Bring samples to class and begin first step of extracting DNA 
-7. Culture and plate samples in three different dilutions. 
+1. I will obtain my samples for this project during lab session on Tuesday, September 3. 
+2. Swab the drain of a bathroom sink from my home. 
+3. Swab the drain of the bathroom sink in my aunt's home.
+4. Swab the drain of a bathroom sink of my grandparent's home.
+5. Swab the drain of a bathroom sink at my work, Apple Store in Stonestown.
+6. Swab the drain of a bathroom sink at my last work locatin, Apple Store in Chestnut Street. 
+7. Swab the drain of a bathroom sink in my friend's workplace, Nordstrom in Stonestown.
+8. Bring samples to class and begin first step of extracting DNA. 
+9. Culture and plate samples in three different dilutions. 
