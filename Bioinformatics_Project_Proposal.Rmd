@@ -9,15 +9,15 @@ bibliography: references.bib
 
 # Overview of Proposed Project 
 
-My plan for this semester-long project is to analyze the microbiome of used sinks. I will compare the microbiome of bathroom sinks from houses and compare them to the microbiome of sinks in a workplace. 
+My plan for this semester-long project is to analyze the microbiome of bathroom sinks. I will compare the microbiome of bathroom sinks from residential houses and compare them to the microbiome of sinks in a workplace. 
 
-Bacteria is found in high cincentrations in built environments. It has been found that bathrooms contain a higher concentration for bacteria than kitchens due to bathrooms being a less ventilated and moist environment. [@ojima2002hygiene] Research has shown that the highest concentration of bacteria in residential homes are found in moist areas such as bathroom sinks. [@rusin1998reduction] Human occupancy and human contact can have an affect on the community and microbiome of a surface area. [@ramos2014tools] 
+Bacteria is found in high cincentrations in built environments. It has been found that bathrooms contain a higher concentration of bacteria than kitchens due to bathrooms being a less ventilated room and a much more moist environment. [@ojima2002hygiene] Research has shown that the highest concentration of bacteria in residential homes are found in moist areas such as bathroom sinks. [@rusin1998reduction] Human occupancy and human contact can have an affect on the community of the microbiome of a surface area. [@ramos2014tools] 
 
 This research is important because we spend most of our time indoors and especially in our homes. Being constantly exposed to the bacteria in our homes or workplaces can greatly influence our health. By knowing how much bacteria is in a certain place we come into close contact with, such as bathroom sinks, we can then find ways of reducing any contamination that could lead to possible illness. 
 
 # Study Design
 
-I will swab the drains of bathroom sinks from three different homes as well as the drains of restroom sinks in three different workplaces. After collecting my samples, I will analyze and compare the microbiome I obatined from each sample.
+I will swab the drains of bathroom sinks from three different homes as well as the drains of restroom sinks in three different workplaces. After collecting my samples, I will analyze and compare the microbiome I obtined from each sample.
 
 # Question 
 
@@ -25,7 +25,7 @@ The question that I will be working to address is, "Does the number of people ge
 
 # Hypothesis 
 
-The bathroom sinks in workplaces will have a more diverse microbiome than the bathroom sink in a residential home. 
+The bathroom sinks in workplaces will have a more diverse microbiome than the bathroom sinks in a residential home. 
 
 # Materials  
 
@@ -41,7 +41,7 @@ The bathroom sinks in workplaces will have a more diverse microbiome than the ba
 
 1. I will obtain my samples for this project during lab session on Tuesday, September 3. 
 2. Swab the drain of a bathroom sink from my home. 
-3. Swab the drain of the bathroom sink in my aunt's home.
+3. Swab the drain of a bathroom sink in my aunt's home.
 4. Swab the drain of a bathroom sink of my grandparent's home.
 5. Swab the drain of a bathroom sink at my work, Apple Store in Stonestown.
 6. Swab the drain of a bathroom sink at my last work locatin, Apple Store in Chestnut Street. 
