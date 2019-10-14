@@ -1,14 +1,16 @@
 ---
-title: 'Your Title Here'
+title: "Your Title Here"
 author: "Don Francisco"
 date: "August 27, 2019"
-output: word_document
+output:
+  word_document: default
+  pdf_document: default
 csl: bioinformatics.csl
 bibliography: references.bib
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
 # Introduction
@@ -20,6 +22,78 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Analysis
 
 # Results
+
+```{r load-libraries}
+library("ggplot2")
+library("dplyr")
+library("tidyr")
+library("readr")
+library("broom")
+library("knitr")
+```
+
+```{r read-in-culture-data}
+# read in the culture data from csv
+culture_data <- read_csv(
+  "data/raw_data/raw_culture_count_data/BIOL422_culturing_data.csv")
+```
+
+```{r filter-and-plot-abundances}
+# filter out only my 100x dilutions and make a boxplot
+culture_data %>%
+  filter(student_name == "Adelle Sumabat") %>%
+  filter(dilution_1_10_or_100 == "10") %>%
+  ggplot(aes(x = sample_group,
+             y = number_of_colonies)) +
+  geom_boxplot() +
+  ggtitle("Comparison of colony abundances between Personal Bathrooms",
+                "and Public Restrooms, 10x dilution") +
+  xlab("Sample Group") +
+  ylab("Number of Colonies")
+```
+
+**Figure 1:** Boxplot of colony abundances at different sites, 10x dilution. Despite a higher median number of colonies from Personal Bathroom samples, the mean numbers of colonies were not significantly different between the two sites. (Wilcox p = 0.35).
+
+```{r abundances-stats}
+# run a statistical test to compare the two groups of abundances
+culture_data %>%
+  filter(student_name == "Adelle Sumabat") %>%
+  filter(dilution_1_10_or_100 == "10") %>%
+  wilcox.test(data = .,
+              number_of_colonies ~ sample_group) %>%
+  broom::glance(x = .) %>%
+  knitr::kable()
+```
+
+```{r filter-and-plot-morphotypes}
+# filter out only my 100x dilutions and make a boxplot
+culture_data %>%
+  filter(student_name == "Adelle Sumabat") %>%
+  filter(dilution_1_10_or_100 == "100") %>%
+  ggplot(aes(x = sample_group,
+             y = as.numeric(number_of_morphotypes))) +
+  geom_boxplot() +
+  ggtitle("Comparison of morphotypes between Personal Bathrooms",
+                "and Public Restrooms, 100x dilution") +
+  xlab("Sample Group") +
+  ylab("Number of Morphotypes")
+```
+
+**Figure 2:** Boxplot showing the number of morphotypes from the two different sites, 100x dilution. There was no difference in the mean number of morphotypes (Wilcox p=0.1).
+
+```{r morphotypes-stats}
+# run a statistical test to compare the two groups of abundances
+culture_data %>%
+  filter(student_name == "Adelle Sumabat") %>%
+  filter(dilution_1_10_or_100 == "100") %>%
+  wilcox.test(data = .,
+              as.numeric(number_of_morphotypes) ~ sample_group) %>%
+  broom::glance(x = .) %>%
+  knitr::kable()
+```
+
+
+
 
 ## Subsections are ok in the results section too
 
