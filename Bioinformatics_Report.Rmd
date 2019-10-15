@@ -15,6 +15,10 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 # Introduction
 
+Bacteria is found in high concentrations in built environments. Out of all rooms in a built environment, it has been found that bathrooms contain a higher concentration of bacteria than any other room due to bathrooms being a less ventilated room and a much more moist environment. [@ojima2002hygiene] Research has shown that the highest concentration of bacteria in residential homes are found in moist areas such as bathroom sinks. [@rusin1998reduction] Human occupancy and human contact can have an affect on the community of the microbiome of a surface area. [@ramos2014tools] 
+
+This research is important because we spend most of our time indoors and especially in our homes. Being constantly exposed to the bacteria in our homes or public places can greatly influence our health. By knowing how much bacteria is in a certain place we come into close contact with, such as bathroom or restroom sinks, we can then find ways of reducing any contamination that could lead to possible illness. 
+
 # Methods
 
 ## Field Sampling
