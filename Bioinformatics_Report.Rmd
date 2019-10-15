@@ -112,6 +112,10 @@ culture_data %>%
   knitr::kable()
 ```
 
+![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs.jpg)
+
+**Figure 3:** 
+
 | Sample   | DNA concentration (ng/uL) |   |   |   |
 |----------|---------------------------|---|---|---|
 | 1P 1:10  | 8.51                      |   |   |   |
@@ -121,17 +125,24 @@ culture_data %>%
 | 3H 1:10  | 16.40                     |   |   |   |
 | 3H 1:100 | 6.33                      |   |   |   |
 
+**Figure 4:**
+
 | Sample ID   | Organism                            | Max Score | Total Score | Query Cover | E Value   | Per. ID | Accession  |
 |-------------|-------------------------------------|-----------|-------------|-------------|-----------|---------|------------|
 | AS 1P 1:10  | Acidovorax temperans strain R-C-TGW | 920       | 920         | 99%         | 0.0       | 99.60%  | MG982481.1 |
 | AS 1P 1:100 | Citrobacter freundii strain         | 1046      | 1046        | 100%        | 0.0       | 99.48   | MN416243.1 |
 | AS 2P       | Bacillus licheniformis              | 435       | 435         | 100%        | 6*10^-118 | 98.00%  | MK737917.1 |
 
+**Figure 5:**
+
 
 ![](output/phylogenies/sanger_seqs_MrBayes_phylogeny.png)
 
+**Figure 6:**
+
 ![](output/phylogenies/sanger_seqs_phyml_phylogeny.png)
 
+**Figure 7:**
 
 
 # Discussion
