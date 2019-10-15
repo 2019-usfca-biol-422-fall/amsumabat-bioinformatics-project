@@ -127,6 +127,18 @@ culture_data %>%
 
 **Figure 4:**
 
+| Orignial File Name      | File Name After Cleaning               | Usability | Length After Trimming | Number of Corrections |
+|-------------------------|----------------------------------------|-----------|-----------------------|-----------------------|
+| AS_neg_27f_G05.ab1      | AS_neg_27f_G05_AS_failed.ab1           | unusable  | 5                     | 0                     |
+| AS_3H_27f_F05.ab1       | AS_3H_27f_F05_AS_failed.ab1            | unusable  | 5                     | 0                     |
+| AS_3H_1_10_27f_E05.ab1  | AS_3H_1_10_27f_E05_AS_failed_blast.ab1 | usable    | 706                   | 0                     |
+| AS_2P_27f_D05.ab1       | AS_2P_27f_D05_AS_cleaned.ab1           | usable    | 247                   | 3                     |
+| AS_2P_1_10_27f_C05.ab1  | AS_2P_1_10_27f_C05_AS_failed_blast.ab1 | usable    | 299                   | 0                     |
+| AS_1P_1_100_27f_B05.ab1 | AS_1P_1_100_27f_B05_AS_cleaned.ab1     | usable    | 574                   | 2                     |
+| AS_1P_1_10_27f_A05.ab1  | AS_1P_1_10_27f_A05_AS_cleaned.ab1      | usable    | 507                   | 0                     |
+
+**Figure 5:**
+
 | Sample ID   | Organism                            | Query Cover | E Value   | Percent Identity | Accession  |
 |-------------|-------------------------------------|-------------|-----------|------------------|------------|
 | AS 1P 1:10  | Acidovorax temperans strain R-C-TGW | 99%         | 0.0       | 99.60%           | MG982481.1 |
@@ -136,16 +148,16 @@ culture_data %>%
 | AS 3H 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
 | AS 3H       | Sequence failed                     | N/A         | N/A       | N/A              | N/A        |
 
-**Figure 5:**
+**Figure 6:**
 
 
 ![](output/phylogenies/sanger_seqs_MrBayes_phylogeny.png)
 
-**Figure 6:**
+**Figure 7:**
 
 ![](output/phylogenies/sanger_seqs_phyml_phylogeny.png)
 
-**Figure 7:**
+**Figure 8:**
 
 
 # Discussion
