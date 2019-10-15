@@ -127,11 +127,14 @@ culture_data %>%
 
 **Figure 4:**
 
-| Sample ID   | Organism                            | Max Score | Total Score | Query Cover | E Value   | Per. ID | Accession  |
-|-------------|-------------------------------------|-----------|-------------|-------------|-----------|---------|------------|
-| AS 1P 1:10  | Acidovorax temperans strain R-C-TGW | 920       | 920         | 99%         | 0.0       | 99.60%  | MG982481.1 |
-| AS 1P 1:100 | Citrobacter freundii strain         | 1046      | 1046        | 100%        | 0.0       | 99.48   | MN416243.1 |
-| AS 2P       | Bacillus licheniformis              | 435       | 435         | 100%        | 6*10^-118 | 98.00%  | MK737917.1 |
+| Sample ID   | Organism                            | Query Cover | E Value   | Percent Identity | Accession  |
+|-------------|-------------------------------------|-------------|-----------|------------------|------------|
+| AS 1P 1:10  | Acidovorax temperans strain R-C-TGW | 99%         | 0.0       | 99.60%           | MG982481.1 |
+| AS 1P 1:100 | Citrobacter freundii strain         | 100%        | 0.0       | 99.48            | MN416243.1 |
+| AS 2P       | Bacillus licheniformis              | 100%        | 6*10^-118 | 98.00%           | MK737917.1 |
+| AS 2P 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
+| AS 3H 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
+| AS 3H       | Sequence failed                     | N/A         | N/A       | N/A              | N/A        |
 
 **Figure 5:**
 
