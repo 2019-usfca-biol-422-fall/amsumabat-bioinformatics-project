@@ -23,7 +23,11 @@ This research is important because we spend most of our time indoors and especia
 
 ## Field Sampling
 
+To obtain the samples I used for this experiment, I swabbed the drains of bathroom sinks from three different homes as well as restroom sinks from three different public places. This totaled to six distinct sites. I used a sterile swab and inserted it into the drain of a sink. While the swab was in the drain, I moved it in a circular motion for approximately 10 seconds. I removed the swab from the sink and broke off the tip. I inserted the tip of the cotton swab into a labeled tube and set it aside for later use. I swabbed each sink twice and repeated the swabbing procedure for the sinks at each of the six sites. This allowed me to obtain a total of 12 samples. 
+
 ## Culture and Dilution Plates
+
+Six of the twelve samples were cultured. Each sample represented a sink from each of the six sites. 
 
 ## DNA Extraction 
 
@@ -108,7 +112,26 @@ culture_data %>%
   knitr::kable()
 ```
 
+| Sample   | DNA concentration (ng/uL) |   |   |   |
+|----------|---------------------------|---|---|---|
+| 1P 1:10  | 8.51                      |   |   |   |
+| 1P 1:100 | 7.80                      |   |   |   |
+| 2P       | 16.00                     |   |   |   |
+| 2P 1:10  | 49.70                     |   |   |   |
+| 3H 1:10  | 16.40                     |   |   |   |
+| 3H 1:100 | 6.33                      |   |   |   |
+
+| Sample ID   | Organism                            | Max Score | Total Score | Query Cover | E Value   | Per. ID | Accession  |
+|-------------|-------------------------------------|-----------|-------------|-------------|-----------|---------|------------|
+| AS 1P 1:10  | Acidovorax temperans strain R-C-TGW | 920       | 920         | 99%         | 0.0       | 99.60%  | MG982481.1 |
+| AS 1P 1:100 | Citrobacter freundii strain         | 1046      | 1046        | 100%        | 0.0       | 99.48   | MN416243.1 |
+| AS 2P       | Bacillus licheniformis              | 435       | 435         | 100%        | 6*10^-118 | 98.00%  | MK737917.1 |
+
+
 ![](output/phylogenies/sanger_seqs_MrBayes_phylogeny.png)
+
+![](output/phylogenies/sanger_seqs_phyml_phylogeny.png)
+
 
 
 # Discussion
