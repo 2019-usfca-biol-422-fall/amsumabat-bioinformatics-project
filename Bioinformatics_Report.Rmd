@@ -23,25 +23,59 @@ This research is important because we spend most of our time indoors and especia
 
 ## Field Sampling
 
-To obtain the samples I used for this experiment, I swabbed the drains of bathroom sinks from three different homes as well as restroom sinks from three different public places. This totaled to six distinct sites. I used a sterile swab and inserted it into the drain of a sink. While the swab was in the drain, I moved it in a circular motion for approximately 10 seconds. I removed the swab from the sink and broke off the tip. I inserted the tip of the cotton swab into a labeled tube and set it aside for later use. I swabbed each sink twice and repeated the swabbing procedure for the sinks at each of the six sites. This allowed me to obtain a total of 12 samples. 
+To obtain the samples I used for this experiment, I used sterile cotton swabs, sterile buffer, sterile gloves, and tubes. I swabbed the drains of bathroom sinks from three different homes as well as restroom sinks from three different public places. For the personal bathrooms, I swabbed the bathroom sink in my home, a bathroom sink in my cousin’s home, and a bathroom sink in a friend’s home. For the public restrooms, I swabbed the restroom sinks at a Starbucks, Apple retail store, and a Burger King. This totaled to six distinct sites. I used a sterile swab and inserted it into the drain of a sink. While the swab was in the drain, I moved it in a circular motion for approximately 10 seconds. I removed the swab from the sink and broke off the tip. I inserted the tip of the cotton swab into a labeled tube and set it aside for later use. I swabbed each sink twice and repeated the swabbing procedure for the sinks at each of the six sites. This allowed me to obtain a total of 12 samples. I labeled the tubes from personal bathrooms as 1H, 2H, and ,3H. The tubes from public restrooms were labeled as 1P, 2P, and 3P. Six samples, one sample from each location, were used for culturing and the other six were set aside and frozen at -20 degrees celsius which were later used for Illumina sequencing. 
 
 ## Culture and Dilution Plates
 
-Six of the twelve samples were cultured. Each sample represented a sink from each of the six sites. 
+A sample from each location were cultured and diluted. The plates I used for culturing were made up of trypdic soy agar (TSA) medium on 100mm petri dishes. I added 200 uL of sterile buffer, PBS, to one of the tubes containing the swab. I vortexed the tube from approximately 15 seconds. 100 uL of this solution was added to a culture plate and spread with beads. I then added 20 uL of the solution to another tube along with 180 uL of PBS. 100 uL of this solution was added to a culture plate, spread with beads, and labeled as the 10x dilution. I did another dilution by adding 20 uL of the 10x solution to another tube and added another 180 uL of PBS. 100 uL of this solution was added to a culture plate, spread with beads, and labeled as the 100x dilution. I repeated this process with each of the six samples and obtained a total of 18 culture and dilution plates. The plates were incubated overnight at 37 degrees Celsius. The following day, the number of colonies and morphotypes were counted and documented. 
 
 ## DNA Extraction 
 
-## Qubit Analysis
+After the colonies and morphotypes were counted and documented, I chose six different colonies to extract DNA from. I labeled 1.5 mL tubes for each sample. I added cells from one colony to a tube using a sterile pipette tip. I followed the manufacturer’s protocol from the Sigma REDExtract-N-Amp kit
 
 ## PCR
 
+For PCR, I had to first make my master mix after calculating the volumes of reagents needed in my mix. My calculations indicated that I needed 77 uL of AMP, 6.2 uL of 27f primer, 6.2 uL of 92r primer, 7.7 uL of BSA, and 49.3 uL of H20. After I created my master mix, I added 19 uL into 7 tubes. 1 uL from each sample was added to a tube. I added 1 uL of H20 to the seventh tube to serve as the negative control.
+
+The samples were put into a PCR thermocycler. The PCR cycle condition began with five minutes of being in 95 degrees celsius. The thermocycler then changed to 94 degrees celsius for 30 seconds, 65 degrees celsius for 30 seconds, and 72 degrees celsius for one minute. This was repeated for three cycles and the temperature was stepped down by 1 degree per cycle. The thermocycler then changed to  94 degrees C for 30 seconds, 55 degrees C for 30 seconds, and 72 degrees C for 1 minute. This was repeated for 25 cycles. Finally, the thermocycler changed to 72 degrees C for 10 minutes and was held at 4 degrees C. 
+
+
 ## Gel Electrophoresis 
+
+The gel used for my experiement contained 2% agarose gel and SYBR safe dye. 4 uL of our DNA samples were loaded onto a 50 well gel. Ladders served as a positive control at each ends of the wells. I ran the gel under 140V and X TAE buffer conducted current through the gel.
 
 ## Sanger Sequencing
 
+After checking for successful amplification using gel electrophoresis, PCR products were cleaned with ExoSAP (Invitrogen) and sent for unidirectional Sanger sequencing at MCLAB (South San Francisco, CA) using the 27f primer.
+
+
 ## Data Analysis 
 
+The alignment program I used to analyze the Sanger sequences is called Geneious Prime. I received the results from Sanger sequencing as a zip file. I imported my files to geneious and was able to analyze my sequences. I indicated which sequences failed as well as sequences that failed but could have been used for BLAST. I cleaned up and trimmed the sequences that I thought to be usable for BLAST and used IUPAC ambiguity codes for bases that were hard to identify. 
+
+I used an application called BLAST to match my samples to organisms. 
+I also used Geneious to create a Bayesian phylogeny and a Maximum Likelihood phylogeny. Thermus aquaticus was used as an outgroup for both phylogenies. The Bayesian phlyogeny was used 
+
+
 # Results
+
+Results from the bacteria cultures showed that personal bathrooms contained too many colonies to count. For the purpose of this experiement, I documented that I counted 1000 colonies from the plates that were uncountable. I used  a high value to represent the high number of colonies that were uncountable because it allowed for calculations and analysis of the data. The colony abundance from the 10x dilution of samples were compared to one another. (Figure 1) Wilcox test showed a p-value of 0.35. 
+
+The number of morphotypes that I counted from the samples range from 1-6. The morophotypes of the 100x dilution samples from personal bathrooms and public restrooms were compared to one another. (Figure 2) Wilcox test showed a p-value of 0.1
+
+The gel electrophoresis worked on all samples. Four of the six samples showed bright bands whereas the other two showed faint bands.The gel image showed no bands under the negative control. (Figure 3) The DNA used in gel electrophoresis was quanitified via Qubit analysis. (Figure 4) 
+
+After recieving the results from Sanger Sequencing, I cleaned the sequences using Geneious. The negative control and 3H samples turned failed the sequencing. Samples 3H 1:10 and 2P 1:10 failed the sequencing, however, I found the sequences to still be usable for BLAST. Samples 2P, 1P 1:100 and 1P 1:10 were cleaned, trimmed, usable for BLAST.(Figure 5) 
+
+The BLAST results indicated which organisms were found in my samples. (Figure 6) I found a match for three of my samples, 2P, 1P 1:100, and 1P 1:10. Two of my samples, 3H 1:10 and 2P 1:10 resulted with no match. From the blast results I found that my 2P sample matched with Bacillus lichenformis, 1P 1:10 matched with Acideovorax temperans strain R-C-TGW, and 1P 1:100 matched with Citrobacter freundii strain. 
+
+
+I chose three samples 2P, 1P 1:100, and 1P 1:10 to be incorporated into phylogenies; a Bayesian phylogeny and a Maximum Likelihood phylogey. Thermus aquaticus was used as the outgroup for both phylogenies.
+
+
+Bayesian phylogeny (Figure 7) 
+
+Maximum Likelihood phylogeny (Figure 8)
 
 ```{r load-libraries}
 library("ggplot2")
@@ -114,7 +148,7 @@ culture_data %>%
 
 ![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs.jpg)
 
-**Figure 3:** 
+**Figure 3:** Gel image from gel electrophoresis. Image was cropped and annotated to show only my data.
 
 | Sample   | DNA concentration (ng/uL) |   |   |   |
 |----------|---------------------------|---|---|---|
@@ -125,7 +159,7 @@ culture_data %>%
 | 3H 1:10  | 16.40                     |   |   |   |
 | 3H 1:100 | 6.33                      |   |   |   |
 
-**Figure 4:**
+**Figure 4:** DNA concentration results obtained from Qubit analysis.
 
 | Orignial File Name      | File Name After Cleaning               | Usability | Length After Trimming | Number of Corrections |
 |-------------------------|----------------------------------------|-----------|-----------------------|-----------------------|
@@ -137,7 +171,7 @@ culture_data %>%
 | AS_1P_1_100_27f_B05.ab1 | AS_1P_1_100_27f_B05_AS_cleaned.ab1     | usable    | 574                   | 2                     |
 | AS_1P_1_10_27f_A05.ab1  | AS_1P_1_10_27f_A05_AS_cleaned.ab1      | usable    | 507                   | 0                     |
 
-**Figure 5:**
+**Figure 5:** Locus of each 16S sequence and its usability.
 
 | Sample ID   | Organism                            | Query Cover | E Value   | Percent Identity | Accession  |
 |-------------|-------------------------------------|-------------|-----------|------------------|------------|
@@ -148,18 +182,29 @@ culture_data %>%
 | AS 3H 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
 | AS 3H       | Sequence failed                     | N/A         | N/A       | N/A              | N/A        |
 
-**Figure 6:**
+**Figure 6:** BLAST result metrics which indicate the microorganisms found from my samples.
 
 
 ![](output/phylogenies/sanger_seqs_MrBayes_phylogeny.png)
 
-**Figure 7:**
+**Figure 7:** Bayesian phylogeny with thermus aquaticus as an outgroup. 
 
 ![](output/phylogenies/sanger_seqs_phyml_phylogeny.png)
 
-**Figure 8:**
+**Figure 8:** Maximum likelihood phylogeny with thermus aquaticus as an outgroup.
 
 
 # Discussion
+
+My results seemed to have showed that bathroom sinks used in personal homes have a much more diverse microbiome than sinks used in public restrooms. After a day of incubation, the colony abundance from seven out of the nine culture and dilution plates from personal bathroom sinks were so high they were uncountable. I did, however, replaced the data to show that there were 1000 colonies to allow for computation and analysis. The statistic results exhibit a high p-value thus indicating that I failed to reject the null hypothesis. Therefore, my results show that they are not significant enough to prove that bathroom sinks in public restrooms will have a more diverse microbiome than the bathroom sinks in a residential home. Failure to reject the null could be due to many reasons.
+
+One reason that may explain my results could be the times at which I obtained my data from the six locations. I collected samples from bathroom sinks from three different home as well as bathroom sinks from three different restrooms. When I obtained the samples from the bathroom sinks, I had done so in the morning after people living in the household have already finished using the bathroom to wash their hands, wash their faces, brush their teeth, etc. I obtained all my samples during the morning and went to the public restrooms right when the locations opened and therefore, it is likely that no one was able to use the restroom and sink yet that day.  
+
+Another reason could be that the bathroom and restroom sinks that I sampled were cleaned at different times. For example, I work at Apple Stonestown and cleaners come in every few hours to deep clean the restrooms and breakroom in the store. In my house the bathroom does not get cleaned until late afternoon or at the end of the night every other day. The differences in cleaning patterns could have also affected the results of my experiment.
+
+Three of my samples matched with an organism via BLAST. 
+
+For this experiment I assumed that a higher number of people come into contact with sinks located in public restrooms, however, I obtained samples at a time when little to no one has yet even entered the public restroom. The bathroom sinks I sampled may also have different cleaning patterns.
+
 
 # Sources Cited
