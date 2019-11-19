@@ -10,4 +10,9 @@
 # -negative_gilist tells BLAST which sequences to exclude from matches
 # This cuts down on the number of uncultured or environmental matches
 # -query is the fasta file of sequences we want to search for matches to
-blastn -db /blast-db/nt -num_threads 4 -outfmt '10 sscinames std' -out /YOUR_PATH_TO_YOUR_OUTPUT_DIR/blast_results.csv -max_target_seqs 1 -negative_gilist /blast-db/2018-09-19_environmental_sequence.gi -query query_seqs.fasta
+for trim_fasta_files in /data/my-illumina-sequences/trimmed-fasta/AS*
+do
+echo running blast..
+blastn -db /blast-db/nt -num_threads 4 -outfmt '10 sscinames std' -out /data/my-illumina-sequences/blast_output/$(basename -s .trim.fasta $trim_fasta_files).blast_results.csv -max_target_seqs 1 -negative_gilist /blast-db/2018-09-19_environmental_sequence.gi -query $trim_fasta_files
+echo results inputed
+done
