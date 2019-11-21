@@ -61,4 +61,3 @@ melted_phyloseq %>%
   group_by(Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
                                   na.rm = TRUE))
-

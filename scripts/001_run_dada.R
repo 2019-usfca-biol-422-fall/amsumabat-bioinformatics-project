@@ -147,7 +147,7 @@ rownames(track) <- sample_names
 kable(track)
 
 # Remove any sequences shorter than 50 because can't assign their taxonomy
-sequence_table_nochim <- 
+sequence_table_nochim <-
   sequence_table_nochim[, nchar(colnames(sequence_table_nochim)) > 50]
 
 # assigns taxonomy to each sequence variant based on a supplied training set
@@ -184,7 +184,6 @@ export_taxa_table_and_seqs(sequence_table_nochim,
                            "output/sequence_variants_table.txt",
                            "output/sequence_variants_seqs.fa")
 
-# save necessary files from dada pipeline to use with phyloseq 
+# save necessary files from dada pipeline to use with phyloseq
 save(sequence_table_nochim, file = "output/dada-results/seqtable.Rda")
 save(taxa, file = "output/dada-results/taxtable.Rda")
-

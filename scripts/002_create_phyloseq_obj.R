@@ -40,7 +40,7 @@ rownames(sequence_table_nochim) <- gsub(pattern = "_.*filt",
 
 # subset metadata to match taxa table
 metadata_in <- metadata_in[grepl(pattern = "(AS|control)",
-                                 rownames(metadata_in)),]
+                                 rownames(metadata_in)), ]
 
 # Construct phyloseq object (straightforward from dada2 outputs)
 phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
@@ -50,4 +50,3 @@ phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
 
 # save phyloseq and melted_phyloseq objects to use in the Rmd file
 save(phyloseq_obj, file = "output/phyloseq_obj.Rda")
-
