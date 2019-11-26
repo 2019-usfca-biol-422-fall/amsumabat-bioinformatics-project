@@ -270,7 +270,6 @@ melted_phyloseq %>%
 ```
 **Figure 11.**
 
-
 # Discussion
 
 For this experiment I intended to determine if the number of people getting in contact with a bathroom sink affects the diversity of the microbiome found within it. After some research, I hypothesized that bathroom sinks in public restrooms will have a more diverse microbiome than the bathroom sinks in a residential home because of the higher number of people who have access to it.
