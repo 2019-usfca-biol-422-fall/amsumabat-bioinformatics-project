@@ -101,6 +101,12 @@ The BLAST results indicated which organisms were found in my samples (Figure 6).
 
 I chose three samples 2P, 1P 1:100, and 1P 1:10 to be incorporated into phylogenies; a Bayesian phylogeny and a Maximum Likelihood phylogey. _Thermus aquaticus_ was used as the outgroup for both phylogenies. Bayesian phylogeny (Figure 7) was created to show the relationship between organisms. The Bayesian posterior probability was 0.9912. AS 1P 1:10 and AS 1P 1:100 were grouped together in a monophyletic clade. Maximum Likelihood phylogeny (Figure 8) was created to show the relationship between organisms. The Maximum Likelihood bootstrap value was 99. AS 1P 1:10 and AS 1P 1:100 were grouped together in a monophyletic clade in this phylogeny tree as well.
 
+## Environmental Samples
+
+Qubit analysis confirmed that there was enough DNA concentrations to sequence in all six of my environmental samples. Results from the Illumina sequencer showed many sequences found within each environmental sample. Prior to trimming, the sample labeled 1H was found to have a total of 6389 sequences, 1P had 8816 sequences, 2H had 4581 sequences, 2P had 14 sequences, 3H had 10579 sequences, and 3P had 5808 sequences. The negative control sample labeled neg1 had 10990 sequences, neg2 has 3290 sequences, neg3 had 13837 sequences, neg4 had 7825 sequences. The positive control labeled zymo1 had 5236 sequences prior to trimming, zymo2 had 4139 sequences, zymo3 had 8448 sequences, and zymo4 had 9287 sequences. After trimming the sequences from the samples 1H ended up having 6137 sequences, 1P had 8463 sequences, 2H had 4404 sequences, 2P had 4 sequences, 3H had 10148 sequences, and 3P had 5552 sequences. 
+
+_Acideovorax temperans_ was found in the 1P environmental sample along with 71 other strains of _Acidovorax_. _Citrobacter freundii_ was not found in the 1P environmental sample.  _Bacillus licheniformis_ was not found in the 2p environmental SAMPLE.
+
 ```{r load-libraries}
 # Load packages for analysis
 library("ggplot2")
@@ -221,12 +227,6 @@ culture_data %>%
 ![](output/phylogenies/sanger_seqs_phyml_phylogeny.png)
 
 **Figure 8:** Maximum likelihood phylogeny with _Thermus aquaticus_ as an outgroup. Maximum Likelihood bootstrap value of 99.
-
-## Environmental Samples
-
-Qubit analysis confirmed that there was enough DNA concentrations to sequence in all six of my environmental samples. Results from the Illumina sequencer showed many sequences found within each environmental sample. Prior to trimming, the sample labeled 1H was found to have a total of 6389 sequences, 1P had 8816 sequences, 2H had 4581 sequences, 2P had 14 sequences, 3H had 10579 sequences, and 3P had 5808 sequences. The negative control sample labeled neg1 had 10990 sequences, neg2 has 3290 sequences, neg3 had 13837 sequences, neg4 had 7825 sequences. The positive control labeled zymo1 had 5236 sequences prior to trimming, zymo2 had 4139 sequences, zymo3 had 8448 sequences, and zymo4 had 9287 sequences. After trimming the sequences from the samples 1H ended up having 6137 sequences, 1P had 8463 sequences, 2H had 4404 sequences, 2P had 4 sequences, 3H had 10148 sequences, and 3P had 5552 sequences. 
-
-_Acideovorax temperans_ was found in the 1P environmental sample along with 71 other strains of _Acidovorax_. _Citrobacter freundii_ was not found in the 1P environmental sample.  _Bacillus licheniformis_ was not found in the 2p environmental SAMPLE.
 
 ```{r load-saved-pyhloseq-object}
 # load in the saved phyloseq object to work with
