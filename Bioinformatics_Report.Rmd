@@ -109,6 +109,10 @@ library("tidyr")
 library("readr")
 library("broom")
 library("knitr")
+library("lubridate")
+library("forcats")
+library("dada2")
+library("phyloseq")
 ```
 
 ```{r read-in-culture-data}
