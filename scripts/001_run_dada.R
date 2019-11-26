@@ -37,7 +37,7 @@ library("phyloseq")
 # Accessed October 19, 2017
 
 # set the base path for our input data files
-path <- "/data/my-illumina-sequences/unzipped"
+path <- "/data/my-illumina-sequences/unzipped/"
 
 # Sort ensures samples are in order
 filenames_forward_reads <- sort(list.files(path, pattern = ".fastq"))
@@ -49,7 +49,7 @@ sample_names <- sapply(strsplit(filenames_forward_reads, "\\."), `[`, 1)
 filenames_forward_reads <- file.path(path, filenames_forward_reads)
 
 # Plots the quality profiles of first 14 samples
-plotQualityProfile(filenames_forward_reads[1:14])
+plotQualityProfile(filenames_forward_reads[1:6])
 
 # Place filtered files in filtered/ subdirectory
 # note this will fail if the directory doesn't exist
