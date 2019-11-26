@@ -256,7 +256,6 @@ plot_bar(phyloseq_obj,
 ```
 **Figure 10.**
 
-
 ```{r seqeunce-counts}
 # melt phyloseq obj into a data frame for dplyr/ggplot
 # analysis and visualization
