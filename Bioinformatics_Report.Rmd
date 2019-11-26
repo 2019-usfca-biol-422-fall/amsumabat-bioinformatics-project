@@ -228,6 +228,49 @@ Qubit analysis confirmed that there was enough DNA concentrations to sequence in
 
 _Acideovorax temperans_ was found in the 1P environmental sample along with 71 other strains of _Acidovorax_. _Citrobacter freundii_ was not found in the 1P environmental sample.  _Bacillus licheniformis_ was not found in the 2p environmental SAMPLE.
 
+```{r load-saved-pyhloseq-object}
+# load in the saved phyloseq object to work with
+load("output/phyloseq_obj.Rda")
+```
+
+```{r alpha-diversity-metrics}
+# alpha diversity metrics
+plot_richness(phyloseq_obj,
+              x = "type",
+              measures = c("Shannon", "Simpson")) +
+  xlab("Type of sample") +
+  geom_boxplot() +
+  theme_bw()
+```
+**Figure 9.**
+
+```{r plot-of-taxa}
+# bar plot of taxa
+plot_bar(phyloseq_obj,
+         x = "type",
+         fill = "Phylum")
+```
+**Figure 10**
+
+
+```{r seqeunce-counts}
+# melt phyloseq obj into a data frame for dplyr/ggplot
+# analysis and visualization
+melted_phyloseq <- psmelt(phyloseq_obj)
+
+# turn all factor columns into character columns for dplyr
+melted_phyloseq <- melted_phyloseq %>%
+  mutate_if(is.factor, as.character)
+
+# create a summary table of sequence counts for each Phylum
+melted_phyloseq %>%
+  group_by(Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                  na.rm = TRUE))
+```
+**Figure 11**
+
+
 # Discussion
 
 For this experiment I intended to determine if the number of people getting in contact with a bathroom sink affects the diversity of the microbiome found within it. After some research, I hypothesized that bathroom sinks in public restrooms will have a more diverse microbiome than the bathroom sinks in a residential home because of the higher number of people who have access to it.
