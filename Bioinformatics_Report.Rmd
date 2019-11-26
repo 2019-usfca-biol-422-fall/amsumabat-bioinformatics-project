@@ -232,6 +232,11 @@ culture_data %>%
 
 **Figure 8:** Maximum likelihood phylogeny with _Thermus aquaticus_ as an outgroup. Maximum Likelihood bootstrap value of 99.
 
+```{r load-data}
+# load in the saved phyloseq object to work with
+load("output/phyloseq_obj.Rda")
+```
+
 ```{r alpha-diversity-metrics}
 # alpha diversity metrics
 plot_richness(phyloseq_obj,
