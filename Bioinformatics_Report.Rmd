@@ -3,8 +3,8 @@ title: No Significant Differences Found Between The Microbiome of Personal Bathr
 author: Adelle Marie Sumabat
 date: October 16, 2019
 output:
-  word_document: default
   pdf_document: default
+  word_document: default
 csl: bioinformatics.csl
 bibliography: references.bib
 ---
@@ -250,7 +250,7 @@ plot_bar(phyloseq_obj,
          x = "type",
          fill = "Phylum")
 ```
-**Figure 10**
+**Figure 10.**
 
 
 ```{r seqeunce-counts}
@@ -268,7 +268,7 @@ melted_phyloseq %>%
   summarize(sum_abundance = sum(Abundance,
                                   na.rm = TRUE))
 ```
-**Figure 11**
+**Figure 11.**
 
 
 # Discussion
