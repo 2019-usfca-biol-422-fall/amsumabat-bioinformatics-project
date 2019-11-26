@@ -273,6 +273,23 @@ melted_phyloseq %>%
 ```
 **Figure 11.**
 
+```{r summary-table}
+# Create a summary table of sequence results for each Phylum and its abundance 
+melted_phyloseq %>%
+  group_by(Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                na.rm = TRUE)) %>%
+  ggplot(aes(x = Phylum,
+             y = sum_abundance)) +
+  ggtitle("Phylum Abundance") +
+  labs(y = "Sum Abundance") +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1))
+```
+**Figure 12.**
+
 # Discussion
 
 For this experiment I intended to determine if the number of people getting in contact with a bathroom sink affects the diversity of the microbiome found within it. After some research, I hypothesized that bathroom sinks in public restrooms will have a more diverse microbiome than the bathroom sinks in a residential home because of the higher number of people who have access to it.
