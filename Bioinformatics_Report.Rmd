@@ -3,8 +3,8 @@ title: No Significant Differences Found Between The Microbiome of Personal Bathr
 author: Adelle Marie Sumabat
 date: October 16, 2019
 output:
-  pdf_document: default
   word_document: default
+  pdf_document: default
 csl: bioinformatics.csl
 bibliography: references.bib
 ---
