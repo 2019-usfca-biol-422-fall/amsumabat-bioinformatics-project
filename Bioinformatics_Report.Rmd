@@ -42,14 +42,14 @@ After the colonies and morphotypes were counted and documented, I chose six diff
 
 ## PCR
 
-For PCR, I had to first make the master mix. I calculated the volumes of reagents required for the mix. The reagents I used were AMP, 27f primer, 92r primer, BSA, and H20. After I created the master mix, I divided the master mix into 7 tubes. 1 uL of DNA from each sample was added to a tube. I added H20 to the seventh tube to serve as the negative control.
+For PCR, I had to first make the master mix. The volumes of reagents required for the mix for one reaction were 10 uL AMP, 0.8 uL 27f primer, 0.8 uL 1492r primer, 1 uL BSA, 1 uL template DNA and 6.4 uL H20. After I created the master mix, I divided the master mix into 7 tubes. 1 uL of DNA from each sample was added to a tube. I added H20 to the seventh tube to serve as the negative control.
 
-I put the samples into a PCR thermocycler. The PCR cycle conditions began with five minutes of being in 95 degrees Celsius. I then set the thermocycler to undergo a cycle that started off at 94 degrees Celsius for 30 seconds, 65 degrees Celsius for 30 seconds, and 72 degrees Celsius for one minute. This was repeated for ten cycles and the temperature was stepped down by 1 degree per cycle. I changed the thermocycler again and set the temperature to 94 degrees Celsius for 30 seconds, 55 degrees Celsius for 30 seconds, and 72 degrees Celsius for 1 minute. This was repeated for 25 cycles. I then changed the thermocycler temperature to 72 degrees Celsius for 10 minutes and the thermocycler was finally held at 4 degrees Celsius.
+The PCR cycle conditions began with five minutes of being in 95 degrees Celsius. I then set the thermocycler to undergo a cycle that started off at 94 degrees Celsius for 30 seconds, 65 degrees Celsius for 30 seconds, and 72 degrees Celsius for one minute. This was repeated for ten cycles and the temperature was stepped down by 1 degree per cycle. I changed the thermocycler again and set the temperature to 94 degrees Celsius for 30 seconds, 55 degrees Celsius for 30 seconds, and 72 degrees Celsius for 1 minute. This was repeated for 25 cycles. I then changed the thermocycler temperature to 72 degrees Celsius for 10 minutes and the thermocycler was finally held at 4 degrees Celsius.
 
 
 ## Gel Electrophoresis 
 
-The gel I used for my experiement contained 2% agarose gel and SYBR safe dye. 4 uL of our DNA samples were loaded onto a 50 well gel. I used ladders to serve as a positive control at each end of the wells. I ran the gel under 140V and X TAE buffer conducted current through the gel.
+The gel I used for my experiement contained 2% agarose gel and SYBR safe dye. 4 uL of our DNA samples were loaded onto a 50 well gel. I used ladders to serve as a positive control at each end of the wells. I ran the gel under 140V and 1X TAE buffer conducted current through the gel.
 
 ## Sanger Sequencing
 
@@ -58,9 +58,9 @@ After checking for successful amplification using gel electrophoresis, PCR produ
 
 ## Data Analysis 
 
-The alignment program I used to analyze the Sanger sequences is a software called Geneious Prime. I received the results from Sanger sequencing as a zip file. I imported my files to Geneious and was able to analyze my sequences. I cleaned up and trimmed the sequences that I confirmed to be usable for BLAST and used IUPAC ambiguity codes for bases that were hard to identify. I confirmed that any sequences that were similar to the negative control were unusable for BLAST. For the rest of the sequences that were usable for BLAST, I cut off the beginning and ends of the sequences due to the noise in those sections of the reads. I used IUPAC ambiguity codes to replace the low-quality nucleotides. 
+The alignment program I used to analyze the Sanger sequences is a software called Geneious Prime version 2019.2.3. I received the results from Sanger sequencing as a zip file. I imported my files to Geneious and was able to analyze my sequences. I cleaned up and trimmed the sequences that I confirmed to be usable for BLAST and used IUPAC ambiguity codes for bases that were hard to identify. I confirmed that any sequences that were similar to the negative control were unusable for BLAST. For the rest of the sequences that were usable for BLAST, I cut off the beginning and ends of the sequences due to the noise in those sections of the reads. I used IUPAC ambiguity codes to replace the low-quality nucleotides. 
 
-I used a software called BLAST to match the sequences from my samples to organisms that were in NCBI's nucleotide database. Multiple organisms were shown from the BLAST results and I chose the top result for each sample. I then used Geneious to create a Bayesian phylogeny and a Maximum Likelihood phylogeny. I created the phylogenies using multiple sequence alignments generated using MAFFT [@katoh2009multiple]. I used the default parameters for MAFFT. I installed MrBayes software in Genious Prime to create the Bayesian phylogeny [@huelsenbeck2001mrbayes]. For the parameters, I used GTR for the substitution model, _Thermus aquaticus_ was used as an outgroup, and I used the default for the rest of the parameters. I installed PhyML software to create the Maximum Likelihood phylogeny [@guindon2005phyml]. For the parameters, I used GTR for the substituion model, Bootstrap as branch support, _Thermus aquaticus_ was used as an outgroup, and then I used the default for the rest of the parameters. My data reached the minimum of three sequences that was required in order to successfully create both phylogeny trees.
+I used a software called BLAST to match the sequences from my samples to organisms that were in NCBI's nucleotide database. Multiple organisms were shown from the BLAST results and I chose the top result for each sample. I then used Geneious to create a Bayesian phylogeny and a Maximum Likelihood phylogeny. I created the phylogenies using multiple sequence alignments generated using MAFFT [@katoh2009multiple]. I used the default parameters for MAFFT. I used MrBayes software in Genious Prime to create a Bayesian phylogeny [@huelsenbeck2001mrbayes]. For the parameters, I used GTR for the substitution model, _Thermus aquaticus_ was used as an outgroup, and I used the default for the rest of the parameters. I used PhyML software to create a Maximum Likelihood phylogeny [@guindon2005phyml]. For the parameters, I used GTR for the substituion model, Bootstrap as branch support, _Thermus aquaticus_ was used as an outgroup, and then I used the default for the rest of the parameters. My data reached the minimum of three sequences that was required in order to successfully create both phylogeny trees.
 
 # Culture Free Methods For Environmental Samples
 
@@ -70,9 +70,9 @@ After the initial six samples were sequenced via Sanger sequencing, the other si
 
 ## PCR
 
-To prepare the samples for PCR, I calculated the reagents required for the master mix. The reagents required for the master mix are AMP, 16sF and 16sR primers, BSA, template, and water. I prepared enough master mix to include 17uL in a PCR tube along with 1uL of DNA.
+To prepare the samples for PCR, I calculated the reagents required for the master mix. The reagents required for the master mix for one reaction was 10 uL AMP, 0.8 uL 16SF and 0.8 uL 16SR primers, 1 uL BSA, 1 uL DNA template, and 6.4 uL H2O. After I created the master mix, I divided the master mix into 7 tubes. 1 uL of DNA from each sample was added to a tube. I added H20 to the seventh tube to serve as the negative control.
 
-I put the samples into a PCR thermocycler. The cycle began with three minutes of being in 96 degrees Celsius. The thermocycler was changed to undergo 95 degrees Celsius for 30 seconds, 55 degrees Celsius for 30 seconds, and 72 degrees Celsius for 30 seconds. This was repeated for 25 cycles. The thermocycler was then set to 72 degrees Celsius for 5 minutes before being held at 4 degrees Celsius.
+The cycle began with three minutes of being in 96 degrees Celsius. The thermocycler was changed to undergo 95 degrees Celsius for 30 seconds, 55 degrees Celsius for 30 seconds, and 72 degrees Celsius for 30 seconds. This was repeated for 25 cycles. The thermocycler was then set to 72 degrees Celsius for 5 minutes before being held at 4 degrees Celsius.
 
 ## Gel Electrophoresis
 
@@ -84,7 +84,7 @@ Following electrophoresis, PCR products were purified using AmpureXP magnetic be
 
 ## Data Analysis
 
-I used the Bash operating system to analyze the data that resulted from the Illumina sequencing. I created scripts to assess the quality of the data, toss out bad sequences, clean other sequences, convert files to the correct format, and finally BLAST the data in order to get information on the organisms present in my environmental samples. The sequences were trimmed and cleaned to provide more accurate DNA sequences from my environmental samples. The files needed to be converted from fastq to fasta format because BLAST analysis only works with fasta formatted files. The organism match was based off NCBI’s nucleotide database. I ran the scripts using tmux in order to allow the code to continue running even after I disconnected from the server. 
+I created bash scripts to assess the quality of the data, toss out bad sequences, clean other sequences, convert files to the correct format, and finally BLAST the data in order to get information on the organisms present in my environmental samples. The sequences were trimmed and cleaned to provide more accurate DNA sequences from my environmental samples. Trimmomatic was used to cut the first five and last five base pairs, cut any base pair with a quality score below 25, as well as cut any sequences that contained less than 140 base pairs. The files needed to be converted from fastq to fasta format because BLAST analysis only works with fasta formatted files. The organism match was based off NCBI’s nucleotide database and I used the single top match.
 
 # Results
 
@@ -214,9 +214,9 @@ culture_data %>%
 
 | Sample ID   | Organism                            | Query Cover | E Value   | Percent Identity | Accession  |
 |-------------|-------------------------------------|-------------|-----------|------------------|------------|
-| AS 1P 1:10  | Acidovorax temperans strain R-C-TGW | 99%         | 0.0       | 99.60%           | MG982481.1 |
-| AS 1P 1:100 | Citrobacter freundii strain         | 100%        | 0.0       | 99.48            | MN416243.1 |
-| AS 2P       | Bacillus licheniformis              | 100%        | 6*10^-118 | 98.00%           | MK737917.1 |
+| AS 1P 1:10  | _Acidovorax temperans_ strain R-C-TGW | 99%         | 0.0       | 99.60%           | MG982481.1 |
+| AS 1P 1:100 | _Citrobacter freundii_ strain         | 100%        | 0.0       | 99.48            | MN416243.1 |
+| AS 2P       | _Bacillus licheniformis_              | 100%        | 6*10^-118 | 98.00%           | MK737917.1 |
 | AS 2P 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
 | AS 3H 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
 | AS 3H       | Sequence failed                     | N/A         | N/A       | N/A              | N/A        |
@@ -241,18 +241,45 @@ load("output/phyloseq_obj.Rda")
 # alpha diversity metrics
 plot_richness(phyloseq_obj,
               x = "type",
-              measures = c("Shannon", "Simpson")) +
+              measures = c("Shannon")) +
   xlab("Type of sample") +
   geom_boxplot() +
-  theme_bw()
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1))
 ```
 **Figure 9.**
 
 ```{r plot-of-taxa}
+##########################################
+# dplyr and ggplot analyses
+##########################################
+
+# melt phyloseq obj into a data frame for dplyr/ggplot
+# analysis and visualization
+melted_phyloseq <- psmelt(phyloseq_obj)
+
+# turn all factor columns into character columns for dplyr
+melted_phyloseq <- melted_phyloseq %>%
+  mutate_if(is.factor, as.character)
+
+# create a summary table of sequence counts for each Phylum
+melted_phyloseq %>%
+  group_by(Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                  na.rm = TRUE))
 # bar plot of taxa
-plot_bar(phyloseq_obj,
-         x = "type",
-         fill = "Phylum")
+ggplot(melted_phyloseq,
+       aes(x = type,
+           y = Abundance,
+           color = Phylum,
+           fill = Phylum)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1)) +
+  xlab("Type of Sample") +
+  ylab("Number of Sequences") +
+  ggtitle("Number of Sequences")
 ```
 **Figure 10.**
 
@@ -269,7 +296,8 @@ melted_phyloseq <- melted_phyloseq %>%
 melted_phyloseq %>%
   group_by(Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
-                                  na.rm = TRUE))
+                                  na.rm = TRUE)) %>%
+  kable()
 ```
 **Figure 11.**
 
