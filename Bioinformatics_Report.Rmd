@@ -2,9 +2,7 @@
 title: No Significant Differences Found Between The Microbiome of Personal Bathroom Sinks and Public Restroom Sinks
 author: Adelle Marie Sumabat
 date: October 16, 2019
-output:
-  word_document: default
-  pdf_document: default
+output: word_document
 csl: bioinformatics.csl
 bibliography: references.bib
 ---
