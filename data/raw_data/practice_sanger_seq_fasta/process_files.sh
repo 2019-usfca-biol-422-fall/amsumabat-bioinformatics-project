@@ -29,5 +29,5 @@ done
 for seqfile in *.fasta
 do
 	echo In "$seqfile" there are "$(grep -c ">" "$seqfile")" sequences
-	echo In this directory there are "$(find *.fasta | wc -l)" fasta files
+	echo In this directory there are "$(find ./*.fasta | wc -l)" fasta files
 done
