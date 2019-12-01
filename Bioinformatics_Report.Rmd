@@ -107,7 +107,6 @@ _Acidovorax temperans_ was found in the 1P environmental sample along with 71 ot
 
 According to the NCBI's nucleotide database, _Acinetobacter parvus_ was the most abundant species in the 1P environmental sample with 1573 sequences. _Enterococcus faecium_ was most abundant in the 2P environmental sample with 2 sequences. _Sphingomonas yabuuchiae_ was most abundant in the 3P environmental sample with 644 sequences. _Acinetobacter parvus_ was most abundant in the 1H environmental sample with 534 sequences. _Mycobacteroides franklinii_ was most abundant in the 2H environmental sample with 567 sequences. _Serratia liquefaciens_ was most ubundant in the 3H environmental sample with 2075 sequences. 
 
-
 _Proteobacteria_ phylum dominated in abundance with a sum abundance of 49096 (Figure 11). Followed by _Firmicutes_ and _Actinobacteria_. 
 
 ```{r load-libraries}
@@ -273,7 +272,7 @@ ggplot(melted_phyloseq,
            y = Abundance,
            color = Phylum,
            fill = Phylum)) +
-  geom_col() +
+  geom_col(position = position_fill()) +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1)) +
   xlab("Type of Sample") +
@@ -316,6 +315,41 @@ melted_phyloseq %>%
                                    vjust = 1))
 ```
 **Figure 12.**
+
+```{r asv-richness-across-samples}
+melted_phyloseq %>%
+  filter(grepl("AS", Sample)) %>%
+  filter(Abundance > 0) %>%
+  group_by(type, Sample, Phylum) %>%
+  tally() %>%
+  ggplot(aes(x = Sample,
+             y = n,
+             fill = Phylum)) +
+  geom_col() +
+  facet_wrap(~type,
+             scales = "free_x")
+```
+
+```{r abundance-of-strep} 
+melted_phyloseq %>%
+  filter(grepl("AS", Sample)) %>%
+  filter(Genus == "Acinetobacter") %>%
+  filter(Abundance > 0) %>%
+  group_by(Sample) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                na.rm = TRUE))
+```
+
+```{r top-genera}
+melted_phyloseq %>%
+  filter(grepl("AS", Sample)) %>%
+  filter(Abundance > 0) %>%
+  group_by(Genus) %>%
+  summarize(sum_abund = sum(Abundance,
+                            na.rm = TRUE)) %>%
+  arrange(desc(sum_abund))
+```
+
 
 # Discussion
 
