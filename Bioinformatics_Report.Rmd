@@ -109,11 +109,11 @@ Based on the fastqc reports, the quality of my environmental sample sequences we
 
 _Acidovorax temperans_ was found in the 1P environmental sample along with 71 other strains of _Acidovorax_. _Citrobacter freundii_ was not found in the 1P environmental sample.  _Bacillus licheniformis_ was not found in the 2P environmental SAMPLE.
 
-According to the NCBI's nucleotide database, _Acinetobacter parvus_ was the most abundant species in the 1P environmental sample with 1573 sequences. _Enterococcus faecium_ was most abundant in the 2P environmental sample with 2 sequences. _Sphingomonas yabuuchiae_ was most abundant in the 3P environmental sample with 644 sequences. _Acinetobacter parvus_ was most abundant in the 1H environmental sample with 534 sequences. _Mycobacteroides franklinii_ was most abundant in the 2H environmental sample with 567 sequences. _Serratia liquefaciens_ was most abundant in the 3H environmental sample with 2075 sequences. 
+According to the NCBI's nucleotide database, _Acinetobacter parvus_ was the most abundant species in the 1P environmental sample with 1573 sequences. _Enterococcus faecium_ was most abundant in the 2P environmental sample with 2 sequences. _Sphingomonas yabuuchiae_ was most abundant in the 3P environmental sample with 644 sequences. _Acinetobacter parvus_ was most abundant in the 1H environmental sample with 534 sequences. _Mycobacteroides franklinii_ was most abundant in the 2H environmental sample with 567 sequences. _Serratia liquefaciens_ was most abundant in the 3H environmental sample with 2075 sequences.
 
-Overall, the BLAST results show that _Acinetobacter tandoii_, _Salmonella enterica_, and _Listeria monocytogenes_ were found to be the most abundant organisms within the environmental samples. 
+Overall, the BLAST results show that _Acinetobacter tandoii_, _Salmonella enterica_, and _Listeria monocytogenes_ were found to be the most abundant organisms within the environmental samples.
 
-DADA2 results show that _Proteobacteria_, _Actinobacteria_, and _Firmicutes_ were the top three phyla that dominated in abundance across my samples (Figure 11). _Actinobacter_, _Acidovorax_, and _Pseudomonas_ were the top three most abundant genus found within the environmental samples (Figure 14).
+DADA2 results show that _Proteobacteria_, _Actinobacteria_, and _Firmicutes_ were the top three phyla that dominated in abundance across my samples (Figure 11). _Acinetobacter_, _Acidovorax_, and _Pseudomonas_ were the top three most abundant genus found within the environmental samples (Figure 14).
 
 ```{r load-libraries}
 # Load packages for analysis
@@ -329,7 +329,8 @@ melted_phyloseq %>%
                             na.rm = TRUE)) %>%
   kable()
 ```
-**Figure 13:** Abundance of _Acinetobacter_ across samples. 
+
+**Figure 13:** Abundance of _Acinetobacter_ across samples.
 
 ```{r top-genera}
 melted_phyloseq %>%
