@@ -105,6 +105,8 @@ I chose three samples 2P, 1P 1:100, and 1P 1:10 to be incorporated into phylogen
 
 Qubit analysis confirmed that there was enough DNA concentrations to sequence in all six of my environmental samples. Results from the Illumina sequencer showed many sequences found within each environmental sample. Prior to trimming, the sample labeled 1H was found to have a total of 6389 sequences, 1P had 8816 sequences, 2H had 4581 sequences, 2P had 14 sequences, 3H had 10579 sequences, and 3P had 5808 sequences. The negative control sample labeled neg1 had 10990 sequences, neg2 has 3290 sequences, neg3 had 13837 sequences, neg4 had 7825 sequences. The positive control labeled zymo1 had 5236 sequences prior to trimming, zymo2 had 4139 sequences, zymo3 had 8448 sequences, and zymo4 had 9287 sequences. After trimming the sequences from the samples 1H ended up having 6137 sequences, 1P had 8463 sequences, 2H had 4404 sequences, 2P had 4 sequences, 3H had 10148 sequences, and 3P had 5552 sequences. 
 
+Based on the fastqc reports, the quality of my environmental sample sequences were high. For all six environmental samples, the quality was shown to be at its lowest at the 150-151 position or the end of the sequences. However, it still protrayed high quality based on the "Per base sequence quality" chart. The quality of the sequences were confirmed after trimming the sequences via Bash commandline. Out of the thousands of sequences found in each sample, only a few hundred sequences from each sample were "thrown out" after running the code to trim and clean the sequences. The environmental sample from site 2P had the lowest count of sequences with a count of 14.
+
 _Acidovorax temperans_ was found in the 1P environmental sample along with 71 other strains of _Acidovorax_. _Citrobacter freundii_ was not found in the 1P environmental sample.  _Bacillus licheniformis_ was not found in the 2P environmental SAMPLE.
 
 According to the NCBI's nucleotide database, _Acinetobacter parvus_ was the most abundant species in the 1P environmental sample with 1573 sequences. _Enterococcus faecium_ was most abundant in the 2P environmental sample with 2 sequences. _Sphingomonas yabuuchiae_ was most abundant in the 3P environmental sample with 644 sequences. _Acinetobacter parvus_ was most abundant in the 1H environmental sample with 534 sequences. _Mycobacteroides franklinii_ was most abundant in the 2H environmental sample with 567 sequences. _Serratia liquefaciens_ was most ubundant in the 3H environmental sample with 2075 sequences. 
@@ -333,6 +335,7 @@ melted_phyloseq %>%
   facet_wrap(~type,
              scales = "free_x")
 ```
+**Figure 13.**
 
 ```{r abundance-of-strep} 
 melted_phyloseq %>%
@@ -343,6 +346,7 @@ melted_phyloseq %>%
   summarize(sum_abundance = sum(Abundance,
                                 na.rm = TRUE))
 ```
+**Figure 14.** 
 
 ```{r top-genera}
 melted_phyloseq %>%
@@ -353,7 +357,7 @@ melted_phyloseq %>%
                             na.rm = TRUE)) %>%
   arrange(desc(sum_abund))
 ```
-
+**Figure 15.**
 
 # Discussion
 
@@ -377,7 +381,7 @@ The sample labeled 1P 1:100 matched with _Citrobacter freundii_ strain, a bacter
 
 For the results I received back from Sanger sequencing, three of my samples were sequenced successfully. I was able to clean, trim, and match the samples to organisms using BLAST. Two of the samples failed meaning that the sequences I obtained were of extremely low quality but were still usable for BLAST, however, BLAST analysis showed no match for those samples. The sequences could have just been too noisy for BLAST to be able to match an organism to it. One of my samples completely failed and was unusable. The sequence looked exactly like that of the negative control. For the three sequences that failed, it could have been due to either contamination of the samples somewhere throughout the procedure. The samples could have also contained DNA from more than one individual and thus resulted in messy sequences that had no match in the NCBI nucleotide databse. Throughout the experiment, I also found that some of the pipettes that I used were calibrated a bit differently from others. That caused me to redo certain steps throughout the  experiment which may also have potentially affected my data. It is also possible that I could have been using contaminated pipette tips throughout certain parts of the procedure.
 
-Based on the fastqc reports, the quality of my environmental sample sequences were high. For all six environmental samples, the quality was shown to be at its lowest at the 150-151 position or the end of the sequences. However, it still protrayed high quality based on the "Per base sequence quality" chart. The quality of the sequences were confirmed after trimming the sequences via Bash commandline. Out of the thousands of sequences found in each sample, only a few hundred sequences from each sample were "thrown out" after running the code to trim and clean the sequences. The environmental sample from site 2P had the lowest count of sequences with a count of 14. As mentioned earlier, the 2P sample was from a restroom at Apple Stonestown which has cleaners coming in almost every hour to clean and disinfect the restrooms, break room, etc. Since I came in the morning, the restroom was still fresh from the morning cleaners. This can explain the significantly low amount of sequences found in the sample taken from this site.
+According to the fastqc report, the environmental samples contained thousands of high quality sequences with the exception of the sample from site 2P which had the lowest count of 14 sequences. As mentioned earlier, the 2P sample was from a restroom at Apple Stonestown which has cleaners coming in almost every hour to clean and disinfect the restrooms, break room, etc. Since I came in the morning, the restroom was still fresh from the morning cleaners. This can explain the significantly low amount of sequences found in the sample taken from this site. 
 
 The results from the Illumina sequences were not as I had expected. I found thousands of sequences from different organisms within each sample, including the positive and negative controls. Because Illumina sequencing is suppose to extract essentially all the organisms found in a sample, whatever I found in my culture samples should also be found in my environmental samples. Although, _Acidovorax temperans_ was indeed found in the environmental sample labeled 1P, _Citrobacter freundii_ was not. Both organisms were found in my cultured 1P samples via BLAST analysis. This tells me that _Acidovorax temperans_ is a bacteria that was found and obtained from the restroom sink from the 1P site and _Citrobacter freundii_ could be a contaminant in my culture samples. There were 71 strains of _Acidovorax_ found in my 1P environmental sample which gave me more assurance that the bacteria is truly obtained from the environmental sample and not a contaminant.  _Bacillus lichenformis_ was another organism found from my culture sample from the 2P site that was not found in the environmental sample. This again shows that _Bacillus lichenformis_ is actually an organism that may have contaminated my culture sample from the 2P site at some point during my procedure. I found thousands of sequences from different organisms within each sample, including the positive and negative controls. Even after trimming, the positive and negative controls exhibited a high number of sequences in the thousands range. The sequences found in the controls could possibly be due to contamination that must have taken place sometime during the preparation for the sequencer. If this experiement and procedures were to be repeated, I recommend taking caution to avoid any contamination among the samples.
 
@@ -385,9 +389,9 @@ The top three most abundanct organisms from my environmental samples were _Acine
 
 I am quite surprised that the top three most abundant organisms from my environmental samples are pathogenic. It has allowed for me to be more thoughful when cleaning and disinfecting areas such as the sink, bathtub, etc. People spend a lot of time in bathrooms and restrooms on a daily basis so it is important to keep it disinfected to prevent any contact with pathogenic bacteria such as the ones found in my samples from both personal and public restrooms. What surprised me the most is how _Listeria monocytogenes_ is being used for a cancer vaccine that is currently undergoing clinical trials. The illnesses that derive from infection from _Listeria monocytogenes_ are so severe and to think that it can treat women with cervical cancer is mindblowing.
 
-_Proteobacteria_ is a phylum of bacteria that covers Gram-negative bacteria. This phylum was found in high abundance in both personal and public restrooms. It was interesting to find this in my samples because _Proteobacteria_ includes pathogens such as _Escherichia_ and _Salmonella_. However, free-living bacteria responsible for nitrogen fixation also fall under this phylum. Therefore, I cannot confidently conclude that I am exposed to pathogenic bacteria in both private and public restrooms.
+Although my BLAST results showed _Acinetobacter tandoii_, _Salmonella enterica_, and _Listeria monocytogenes_ to be the most abundant bacteria overall among my environmental samples, the DADA2-based results show that _Acinetobacter_, _Acidovorax_, and _Pseudomonas_ are the most abundant. 
 
-Bacteria that fall the _Acinetobacteria_ genus dominated in abundance within the environmental samples. 
+_Proteobacteria_ is a phylum of bacteria that covers Gram-negative bacteria. This phylum was found in high abundance in both personal and public restrooms. It was interesting to find this in my samples because _Proteobacteria_ includes pathogens such as _Escherichia_ and _Salmonella_. However, free-living bacteria responsible for nitrogen fixation also fall under this phylum. Therefore, I cannot confidently conclude that I am exposed to pathogenic bacteria in both private and public restrooms.
 
 If I were to do further research, I would take a larger number of samples. I would also take into consideration variables which I didn't think about prior to this experiment. The variables I would consider would be things like cleaning patterns of the bathrooms and restrooms (when and how often they are cleaned), the time of day I decide to obtain my samples, and stricter sterility to ensure no contaminants throughout the experiment.
 
