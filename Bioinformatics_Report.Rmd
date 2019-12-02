@@ -107,7 +107,9 @@ _Acidovorax temperans_ was found in the 1P environmental sample along with 71 ot
 
 According to the NCBI's nucleotide database, _Acinetobacter parvus_ was the most abundant species in the 1P environmental sample with 1573 sequences. _Enterococcus faecium_ was most abundant in the 2P environmental sample with 2 sequences. _Sphingomonas yabuuchiae_ was most abundant in the 3P environmental sample with 644 sequences. _Acinetobacter parvus_ was most abundant in the 1H environmental sample with 534 sequences. _Mycobacteroides franklinii_ was most abundant in the 2H environmental sample with 567 sequences. _Serratia liquefaciens_ was most ubundant in the 3H environmental sample with 2075 sequences. 
 
-_Proteobacteria_ phylum dominated in abundance with a sum abundance of 49096 (Figure 11). Followed by _Firmicutes_ and _Actinobacteria_. 
+Overall, _Acinetobacter tandoii_, _Salmonella enterica_, and _Listeria monocytogenes_ were found to be the most abundnant organisms within the environmental samples. 
+
+_Proteobacteria_ phylum dominated in abundance with a sum abundance of 49096 (Figure 11). _Actinobacteria_ was the most abundant genus found within the environmental samples.
 
 ```{r load-libraries}
 # Load packages for analysis
