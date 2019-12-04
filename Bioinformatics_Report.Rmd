@@ -288,7 +288,7 @@ ggplot(melted_phyloseq,
 **Figure 10:** The number of sequences found present within the samples organized by the phylum to which the organism belongs to. 
 
 ```{r summary-table}
-# Create a summary table of sequence results for each Phylum and its abundance 
+# Create a summary table of sequence results for each Phylum and its abundance
 melted_phyloseq %>%
   group_by(Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
