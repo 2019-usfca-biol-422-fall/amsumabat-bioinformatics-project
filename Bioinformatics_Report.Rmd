@@ -94,14 +94,14 @@ DADA2 [@callahan2016dada2] and phyloseq [@mcmurdie2012phyloseq] were also used t
 
 Results from the bacteria cultures showed that personal bathrooms contained too many colonies to count. For the purpose of this experiment, I documented that I counted 1000 colonies from the plates that were uncountable. I used  a high value to represent the high abundance of colonies because it allowed for calculations and analysis of the data. The colony abundance from the 10x dilution of samples from each of the sites were compared to one another (Figure 1). Wilcox test showed a p-value of 0.35. The number of morphotypes that I counted from the samples ranged from 1-6. The morphotypes of the 100x dilution samples from personal bathrooms and public restrooms were compared to one another (Figure 2). Wilcox test showed a p-value of 0.1
 
-The gel electrophoresis worked on all samples. Four of the six samples showed bright bands whereas the other two showed faint bands.The gel image showed no bands under the negative control (Figure 3). The DNA used in gel electrophoresis was quantified via Qubit analysis (Figure 4).
+The gel electrophoresis worked on all samples. Four of the six samples showed bright bands whereas the other two showed faint bands.The gel image showed no bands under the negative control (Figure 3). The DNA used in gel electrophoresis was quantified via Qubit analysis (Table 1).
 
-After receiving the results from Sanger sequencing, I cleaned the sequences using Geneious. The negative control and 3H samples failed and were unusable for BLAST. Samples 3H 1:10 and 2P 1:10 failed the sequencing, however, I found the sequences to still be usable for BLAST. Samples 2P, 1P 1:100 and 1P 1:10 were cleaned, trimmed, and usable for BLAST (Figure 5).
+After receiving the results from Sanger sequencing, I cleaned the sequences using Geneious. The negative control and 3H samples failed and were unusable for BLAST. Samples 3H 1:10 and 2P 1:10 failed the sequencing, however, I found the sequences to still be usable for BLAST. Samples 2P, 1P 1:100 and 1P 1:10 were cleaned, trimmed, and usable for BLAST (Table 2).
 
-The BLAST results indicated which organisms were found in my samples (Figure 6). I found a match for three of my samples, 2P, 1P 1:100, and 1P 1:10. Two of my samples, 3H 1:10 and 2P 1:10 resulted with no match. From the blast results I found that my 2P sample matched with _Bacillus licheniformis_, 1P 1:10 matched with _Acidovorax temperans_ strain R-C-TGW, and 1P 1:100 matched with _Citrobacter freundii_ strain.
+The BLAST results indicated which organisms were found in my samples (Table 3). I found a match for three of my samples, 2P, 1P 1:100, and 1P 1:10. Two of my samples, 3H 1:10 and 2P 1:10 resulted with no match. From the blast results I found that my 2P sample matched with _Bacillus licheniformis_, 1P 1:10 matched with _Acidovorax temperans_ strain R-C-TGW, and 1P 1:100 matched with _Citrobacter freundii_ strain.
 
 
-I chose three samples 2P, 1P 1:100, and 1P 1:10 to be incorporated into phylogenies; a Bayesian phylogeny and a Maximum Likelihood phylogeny. _Thermus aquaticus_ was used as the outgroup for both phylogenies. Bayesian phylogeny (Figure 7) was created to show the relationship between organisms. The Bayesian posterior probability was 0.9912. AS 1P 1:10 and AS 1P 1:100 were grouped together in a monophyletic clade. Maximum Likelihood phylogeny (Figure 8) was created to show the relationship between organisms. The Maximum Likelihood bootstrap value was 99. AS 1P 1:10 and AS 1P 1:100 were grouped together in a monophyletic clade in this phylogeny tree as well.
+I chose three samples 2P, 1P 1:100, and 1P 1:10 to be incorporated into phylogenies; a Bayesian phylogeny and a Maximum Likelihood phylogeny. _Thermus aquaticus_ was used as the outgroup for both phylogenies. Bayesian phylogeny (Figure 4) was created to show the relationship between organisms. The Bayesian posterior probability was 0.9912. AS 1P 1:10 and AS 1P 1:100 were grouped together in a monophyletic clade. Maximum Likelihood phylogeny (Figure 5) was created to show the relationship between organisms. The Maximum Likelihood bootstrap value was 99. AS 1P 1:10 and AS 1P 1:100 were grouped together in a monophyletic clade in this phylogeny tree as well.
 
 ## Environmental Samples
 
@@ -130,113 +130,6 @@ library("forcats")
 library("dada2")
 library("phyloseq")
 ```
-
-```{r read-in-culture-data}
-# read in the culture data from csv
-culture_data <- read_csv(
-  "data/raw_data/raw_culture_count_data/BIOL422_culturing_data.csv")
-```
-
-```{r filter-and-plot-abundances}
-# filter out only my 100x dilutions and make a boxplot
-culture_data %>%
-  filter(student_name == "Adelle Sumabat") %>%
-  filter(dilution_1_10_or_100 == "10") %>%
-  ggplot(aes(x = sample_group,
-             y = number_of_colonies)) +
-  geom_boxplot() +
-  ggtitle("Comparison of colony abundances between Personal Bathrooms",
-                "and Public Restrooms, 10x dilution") +
-  xlab("Sample Group") +
-  ylab("Number of Colonies")
-```
-
-**Figure 1:** Boxplot of colony abundances at different sites, 10x dilution. Despite a higher median number of colonies from Personal Bathroom samples, the mean numbers of colonies were not significantly different between the two sites. (Wilcox p = 0.35).
-
-```{r abundances-stats}
-# run a statistical test to compare the two groups of abundances
-culture_data %>%
-  filter(student_name == "Adelle Sumabat") %>%
-  filter(dilution_1_10_or_100 == "10") %>%
-  wilcox.test(data = .,
-              number_of_colonies ~ sample_group) %>%
-  broom::glance(x = .) %>%
-  knitr::kable()
-```
-
-```{r filter-and-plot-morphotypes}
-# filter out only my 100x dilutions and make a boxplot
-culture_data %>%
-  filter(student_name == "Adelle Sumabat") %>%
-  filter(dilution_1_10_or_100 == "100") %>%
-  ggplot(aes(x = sample_group,
-             y = as.numeric(number_of_morphotypes))) +
-  geom_boxplot() +
-  ggtitle("Comparison of morphotypes between Personal Bathrooms",
-                "and Public Restrooms, 100x dilution") +
-  xlab("Sample Group") +
-  ylab("Number of Morphotypes")
-```
-
-**Figure 2:** Boxplot showing the number of morphotypes from the two different sites, 100x dilution. There was no difference in the mean number of morphotypes (Wilcox p=0.1).
-
-```{r morphotypes-stats}
-# run a statistical test to compare the two groups of abundances
-culture_data %>%
-  filter(student_name == "Adelle Sumabat") %>%
-  filter(dilution_1_10_or_100 == "100") %>%
-  wilcox.test(data = .,
-              as.numeric(number_of_morphotypes) ~ sample_group) %>%
-  broom::glance(x = .) %>%
-  knitr::kable()
-```
-
-![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs.jpg)
-
-**Figure 3:** Gel image from gel electrophoresis. Image was cropped and annotated to show only my data.
-
-| Sample   | DNA concentration (ng/uL) |   |   |   |
-|----------|---------------------------|---|---|---|
-| 1P 1:10  | 8.51                      |   |   |   |
-| 1P 1:100 | 7.80                      |   |   |   |
-| 2P       | 16.00                     |   |   |   |
-| 2P 1:10  | 49.70                     |   |   |   |
-| 3H 1:10  | 16.40                     |   |   |   |
-| 3H 1:100 | 6.33                      |   |   |   |
-
-**Figure 4:** DNA concentration results obtained from Qubit analysis. 2-50 ng/uL was considered to be a good range for DNA concentration.
-
-| Original File Name      | File Name After Cleaning               | Usability | Length After Trimming | Number of Corrections |
-|-------------------------|----------------------------------------|-----------|-----------------------|-----------------------|
-| AS_neg_27f_G05.ab1      | AS_neg_27f_G05_AS_failed.ab1           | unusable  | 5                     | 0                     |
-| AS_3H_27f_F05.ab1       | AS_3H_27f_F05_AS_failed.ab1            | unusable  | 5                     | 0                     |
-| AS_3H_1_10_27f_E05.ab1  | AS_3H_1_10_27f_E05_AS_failed_blast.ab1 | usable    | 706                   | 0                     |
-| AS_2P_27f_D05.ab1       | AS_2P_27f_D05_AS_cleaned.ab1           | usable    | 247                   | 3                     |
-| AS_2P_1_10_27f_C05.ab1  | AS_2P_1_10_27f_C05_AS_failed_blast.ab1 | usable    | 299                   | 0                     |
-| AS_1P_1_100_27f_B05.ab1 | AS_1P_1_100_27f_B05_AS_cleaned.ab1     | usable    | 574                   | 2                     |
-| AS_1P_1_10_27f_A05.ab1  | AS_1P_1_10_27f_A05_AS_cleaned.ab1      | usable    | 507                   | 0                     |
-
-**Figure 5:** Locus of each 16S sequence, its usability, and sequence length after trimming.
-
-| Sample ID   | Organism                            | Query Cover | E Value   | Percent Identity | Accession  |
-|-------------|-------------------------------------|-------------|-----------|------------------|------------|
-| AS 1P 1:10  | _Acidovorax temperans_ strain R-C-TGW | 99%         | 0.0       | 99.60%           | MG982481.1 |
-| AS 1P 1:100 | _Citrobacter freundii_ strain         | 100%        | 0.0       | 99.48            | MN416243.1 |
-| AS 2P       | _Bacillus licheniformis_              | 100%        | 6*10^-118 | 98.00%           | MK737917.1 |
-| AS 2P 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
-| AS 3H 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
-| AS 3H       | Sequence failed                     | N/A         | N/A       | N/A              | N/A        |
-
-**Figure 6:** BLAST result metrics which indicate the microorganisms found from my samples. AS 2P 1:10 and 3H 1:10 were failed sequences, however, I still considered them to be usable for BLAST. BLAST showed no match for the two samples. AS 3H was a failed sequence and did not undergo BLAST.
-
-
-![](output/phylogenies/sanger_seqs_MrBayes_phylogeny.png)
-
-**Figure 7:** Bayesian phylogeny with _Thermus aquaticus_ as an outgroup. Bayesian posterior probability of 0.9912
-
-![](output/phylogenies/sanger_seqs_phyml_phylogeny.png)
-
-**Figure 8:** Maximum likelihood phylogeny with _Thermus aquaticus_ as an outgroup. Maximum Likelihood bootstrap value of 99.
 
 ```{r load-data}
 # load in the saved phyloseq object to work with
@@ -399,6 +292,112 @@ This research has expanded my knowledge of microbial communities in bathroom and
 
 # Figures
 
+```{r read-in-culture-data}
+# read in the culture data from csv
+culture_data <- read_csv(
+  "data/raw_data/raw_culture_count_data/BIOL422_culturing_data.csv")
+```
+
+```{r filter-and-plot-abundances}
+# filter out only my 100x dilutions and make a boxplot
+culture_data %>%
+  filter(student_name == "Adelle Sumabat") %>%
+  filter(dilution_1_10_or_100 == "10") %>%
+  ggplot(aes(x = sample_group,
+             y = number_of_colonies)) +
+  geom_boxplot() +
+  ggtitle("Comparison of colony abundances between Personal Bathrooms",
+                "and Public Restrooms, 10x dilution") +
+  xlab("Sample Group") +
+  ylab("Number of Colonies")
+```
+
+**Figure 1:** Boxplot of colony abundances at different sites, 10x dilution. Despite a higher median number of colonies from Personal Bathroom samples, the mean numbers of colonies were not significantly different between the two sites. (Wilcox p = 0.35).
+
+```{r abundances-stats}
+# run a statistical test to compare the two groups of abundances
+culture_data %>%
+  filter(student_name == "Adelle Sumabat") %>%
+  filter(dilution_1_10_or_100 == "10") %>%
+  wilcox.test(data = .,
+              number_of_colonies ~ sample_group) %>%
+  broom::glance(x = .) %>%
+  knitr::kable()
+```
+
+```{r filter-and-plot-morphotypes}
+# filter out only my 100x dilutions and make a boxplot
+culture_data %>%
+  filter(student_name == "Adelle Sumabat") %>%
+  filter(dilution_1_10_or_100 == "100") %>%
+  ggplot(aes(x = sample_group,
+             y = as.numeric(number_of_morphotypes))) +
+  geom_boxplot() +
+  ggtitle("Comparison of morphotypes between Personal Bathrooms",
+                "and Public Restrooms, 100x dilution") +
+  xlab("Sample Group") +
+  ylab("Number of Morphotypes")
+```
+
+**Figure 2:** Boxplot showing the number of morphotypes from the two different sites, 100x dilution. There was no difference in the mean number of morphotypes (Wilcox p=0.1).
+
+```{r morphotypes-stats}
+# run a statistical test to compare the two groups of abundances
+culture_data %>%
+  filter(student_name == "Adelle Sumabat") %>%
+  filter(dilution_1_10_or_100 == "100") %>%
+  wilcox.test(data = .,
+              as.numeric(number_of_morphotypes) ~ sample_group) %>%
+  broom::glance(x = .) %>%
+  knitr::kable()
+```
+
+![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs.jpg)
+
+**Figure 3:** Gel image from gel electrophoresis. Image was cropped and annotated to show only my data.
+
+![](output/phylogenies/sanger_seqs_MrBayes_phylogeny.png)
+
+**Figure 4:** Bayesian phylogeny with _Thermus aquaticus_ as an outgroup. Bayesian posterior probability of 0.9912
+
+![](output/phylogenies/sanger_seqs_phyml_phylogeny.png)
+
+**Figure 5:** Maximum likelihood phylogeny with _Thermus aquaticus_ as an outgroup. Maximum Likelihood bootstrap value of 99.
+
 # Tables
+
+| Sample   | DNA concentration (ng/uL) |   |   |   |
+|----------|---------------------------|---|---|---|
+| 1P 1:10  | 8.51                      |   |   |   |
+| 1P 1:100 | 7.80                      |   |   |   |
+| 2P       | 16.00                     |   |   |   |
+| 2P 1:10  | 49.70                     |   |   |   |
+| 3H 1:10  | 16.40                     |   |   |   |
+| 3H 1:100 | 6.33                      |   |   |   |
+
+**Table 1:** DNA concentration results obtained from Qubit analysis. 2-50 ng/uL was considered to be a good range for DNA concentration.
+
+| Original File Name      | File Name After Cleaning               | Usability | Length After Trimming | Number of Corrections |
+|-------------------------|----------------------------------------|-----------|-----------------------|-----------------------|
+| AS_neg_27f_G05.ab1      | AS_neg_27f_G05_AS_failed.ab1           | unusable  | 5                     | 0                     |
+| AS_3H_27f_F05.ab1       | AS_3H_27f_F05_AS_failed.ab1            | unusable  | 5                     | 0                     |
+| AS_3H_1_10_27f_E05.ab1  | AS_3H_1_10_27f_E05_AS_failed_blast.ab1 | usable    | 706                   | 0                     |
+| AS_2P_27f_D05.ab1       | AS_2P_27f_D05_AS_cleaned.ab1           | usable    | 247                   | 3                     |
+| AS_2P_1_10_27f_C05.ab1  | AS_2P_1_10_27f_C05_AS_failed_blast.ab1 | usable    | 299                   | 0                     |
+| AS_1P_1_100_27f_B05.ab1 | AS_1P_1_100_27f_B05_AS_cleaned.ab1     | usable    | 574                   | 2                     |
+| AS_1P_1_10_27f_A05.ab1  | AS_1P_1_10_27f_A05_AS_cleaned.ab1      | usable    | 507                   | 0                     |
+
+**Table 2:** Locus of each 16S sequence, its usability, and sequence length after trimming.
+
+| Sample ID   | Organism                            | Query Cover | E Value   | Percent Identity | Accession  |
+|-------------|-------------------------------------|-------------|-----------|------------------|------------|
+| AS 1P 1:10  | _Acidovorax temperans_ strain R-C-TGW | 99%         | 0.0       | 99.60%           | MG982481.1 |
+| AS 1P 1:100 | _Citrobacter freundii_ strain         | 100%        | 0.0       | 99.48            | MN416243.1 |
+| AS 2P       | _Bacillus licheniformis_              | 100%        | 6*10^-118 | 98.00%           | MK737917.1 |
+| AS 2P 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
+| AS 3H 1:10  | No good match                       | N/A         | N/A       | N/A              | N/A        |
+| AS 3H       | Sequence failed                     | N/A         | N/A       | N/A              | N/A        |
+
+**Table 3:** BLAST result metrics which indicate the microorganisms found from my samples. AS 2P 1:10 and 3H 1:10 were failed sequences, however, I still considered them to be usable for BLAST. BLAST showed no match for the two samples. AS 3H was a failed sequence and did not undergo BLAST.
 
 # Sources Cited
