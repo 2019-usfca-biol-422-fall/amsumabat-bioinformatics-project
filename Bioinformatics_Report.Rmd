@@ -334,6 +334,8 @@ melted_phyloseq %>%
              y = n,
              fill = Phylum)) +
   geom_col() +
+  ggtitle("Phylum Abundance") +
+  ylab("Number of Organisms")
   facet_wrap(~type,
              scales = "free_x")
 ```
@@ -350,7 +352,9 @@ melted_phyloseq %>%
                             na.rm = TRUE)) %>%
   ggplot(aes(x = Sample,
              y = sum_abund)) +
-  geom_col()
+  geom_col() +
+  ylab("Sum Abundance") +
+  ggtitle("Abundance of Acinetobacter")
 ```
 
 **Figure 10:** Abundance of _Acinetobacter_ across samples.
@@ -367,6 +371,8 @@ melted_phyloseq %>%
   ggplot(aes(x = Genus,
              y = sum_abund, )) +
   geom_col() +
+  ylab("Sum Abundance") +
+  ggtitle("Genus Abundance") +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
                                    vjust = 1))
