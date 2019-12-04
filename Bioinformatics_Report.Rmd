@@ -86,7 +86,7 @@ Following electrophoresis, PCR products were purified using AmpureXP magnetic be
 
 I created bash scripts to assess the quality of the data, toss out bad sequences, clean other sequences, convert files to the correct format, and finally BLAST the data in order to get information on the organisms present in my environmental samples. The sequences were trimmed and cleaned to provide more accurate DNA sequences from my environmental samples. Trimmomatic was used to cut the first five and last five base pairs, cut any base pair with a quality score below 25, as well as cut any sequences that contained less than 140 base pairs. The files needed to be converted from fastq to fasta format because BLAST analysis only works with fasta formatted files. The organism match was based off NCBI’s nucleotide database and I used the single top match.
 
-DADA2 [@callahan2016dada2] and phyloseq [@mcmurdie2012phyloseq] were also used to analyze the environmental samples. DADA2 pipeline was used to process my subsampled 16S fastq files. It was used to filter, trim, generate error models, get rid of duplicated samples, denoise sequences, check for and remove chimeras, and assign taxonomy to the sequences. DADA2 was also used to create a phyloseq object that was used for analysis and visualization through packages in R markdown called pyhloseq and dplyr.
+DADA2 [@callahan2016dada2] and phyloseq [@mcmurdie2012phyloseq] were also used to analyze the environmental samples. DADA2 pipeline was used to process my subsampled 16S fastq files. It was used to filter, trim, generate error models, get rid of duplicated samples, denoise sequences, check for and remove chimeras, create Amplicon Sequence Variants, and assign taxonomy to the sequences. DADA2 was also used to create a phyloseq object that was used for analysis and visualization through packages in R markdown called pyhloseq and dplyr.
 
 # Results
 
@@ -115,134 +115,9 @@ According to my BLAST results that matched with organisms from the NCBI's nucleo
 
 Overall, the BLAST results show that _Acinetobacter tandoii_, _Salmonella enterica_, and _Listeria monocytogenes_ were found to be the most abundant organisms within the environmental samples.
 
-DADA2 results show that _Proteobacteria_, _Actinobacteria_, and _Firmicutes_ were the top three phyla that dominated in abundance across my samples (Figure 11). _Acinetobacter_, _Acidovorax_, and _Pseudomonas_ were the top three most abundant genus found within the environmental samples (Figure 14).
+DADA2 pipeline was used to trim low quality sequences across my samples or discard any sequence with Ns (Table 4). 89 bimeras out of 518 input sequences were identified. I obtained a total of 418 Amplicon Sequence Variants.
 
-```{r load-libraries}
-# Load packages for analysis
-library("ggplot2")
-library("dplyr")
-library("tidyr")
-library("readr")
-library("broom")
-library("knitr")
-library("lubridate")
-library("forcats")
-library("dada2")
-library("phyloseq")
-```
-
-```{r load-data}
-# load in the saved phyloseq object to work with
-load("output/phyloseq_obj.Rda")
-```
-
-```{r alpha-diversity-metrics}
-# alpha diversity metrics
-plot_richness(phyloseq_obj,
-              x = "type",
-              measures = c("Shannon")) +
-  xlab("Type of sample") +
-  geom_boxplot() +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 45,
-                                   hjust = 1))
-```
-
-**Figure 9.** According to Shannon Diversity Index, personal bathrooms and public restrooms have a similar species diversity and evenness mean. However, personal bathrooms have an overall higher species diversity and evenness compared to public restrooms. 
-
-```{r plot-of-taxa}
-##########################################
-# dplyr and ggplot analyses
-##########################################
-
-# melt phyloseq obj into a data frame for dplyr/ggplot
-# analysis and visualization
-melted_phyloseq <- psmelt(phyloseq_obj)
-
-# turn all factor columns into character columns for dplyr
-melted_phyloseq <- melted_phyloseq %>%
-  mutate_if(is.factor, as.character)
-
-# create a summary table of sequence counts for each Phylum
-melted_phyloseq %>%
-  group_by(Phylum) %>%
-  summarize(sum_abundance = sum(Abundance,
-                                  na.rm = TRUE))
-# bar plot of taxa
-ggplot(melted_phyloseq,
-       aes(x = type,
-           y = Abundance,
-           color = Phylum,
-           fill = Phylum)) +
-  geom_col(position = position_fill()) +
-  theme(axis.text.x = element_text(angle = 45,
-                                   hjust = 1)) +
-  xlab("Type of Sample") +
-  ylab("Number of Sequences") +
-  ggtitle("Number of Sequences")
-```
-
-**Figure 10:** The number of sequences found present within the samples organized by the phylum to which the organism belongs to. 
-
-```{r summary-table}
-# Create a summary table of sequence results for each Phylum and its abundance
-melted_phyloseq %>%
-  group_by(Phylum) %>%
-  summarize(sum_abundance = sum(Abundance,
-                                na.rm = TRUE)) %>%
-  ggplot(aes(x = Phylum,
-             y = sum_abundance)) +
-  ggtitle("Phylum Abundance") +
-  labs(y = "Sum Abundance") +
-  geom_col() +
-  theme(axis.text.x = element_text(angle = 45,
-                                   hjust = 1,
-                                   vjust = 1))
-```
-
-**Figure 11:** The overall abundance of organisms by phyla.
-
-```{r asv-richness-across-samples}
-melted_phyloseq %>%
-  filter(grepl("AS", Sample)) %>%
-  filter(Abundance > 0) %>%
-  group_by(type, Sample, Phylum) %>%
-  tally() %>%
-  ggplot(aes(x = Sample,
-             y = n,
-             fill = Phylum)) +
-  geom_col() +
-  facet_wrap(~type,
-             scales = "free_x")
-```
-
-**Figure 12:** Comparison of phylum abundance between personal bathrooms and public restrooms. 2P environmental sample site was not taken into consideration for this figure.
-
-```{r abundance-of-Acinetobacter} 
-melted_phyloseq %>%
-  filter(grepl("AS", Sample)) %>%
-  filter(Genus == "Acinetobacter") %>%
-  filter(Abundance > 0) %>%
-  group_by(Sample) %>%
-  summarize(sum_abund = sum(Abundance,
-                            na.rm = TRUE)) %>%
-  kable()
-```
-
-**Figure 13:** Abundance of _Acinetobacter_ across samples.
-
-```{r top-genera}
-melted_phyloseq %>%
-  filter(grepl("AS", Sample)) %>%
-  filter(Abundance > 0) %>%
-  group_by(Genus) %>%
-  summarize(sum_abund = sum(Abundance,
-                            na.rm = TRUE)) %>%
-  arrange(desc(sum_abund)) %>%
-  kable()
-```
-
-**Figure 14:** Abundance of organisms present in samples by genus.
+DADA2 results show that _Proteobacteria_, _Actinobacteria_, and _Firmicutes_ were the top three phyla that dominated in abundance across my samples (Figure 8). _Acinetobacter_, _Acidovorax_, and _Pseudomonas_ were the top three most abundant genus found within the environmental samples (Figure 11).
 
 # Discussion
 
@@ -291,6 +166,20 @@ If I were to do further research, there would be some variables to take into con
 This research has expanded my knowledge of microbial communities in bathroom and restroom sinks. It has given me insight on the types of microorganisms found within surfaces that I and many others come to close contact with on a daily basis. By understanding the genetic structures of bacteria found in everyday environment we can also find ways to understand their mechanisms in infection and causing disease as well as how they have become resistant to disinfectants and even drugs. Previous literature has found that surfaces that have not been cleaned and maintained pose great risk of infectious disease [@reynolds2005occurrence]. This was also portrayed in my experiment seeing that a well kept public restroom such as Apple exhibited much less bacteria than the bathroom in personal homes that were not yet cleaned at the time of field sampling. This means that maintaining a clean environment is necessary to ensure our well being. It is important to know the possible organisms we come into contact with to prepare for potential illness that may arise. My experiment has shown that humans can come into contact with many pathogenic microorganisms. With the increasing number of multi-drug and antibiotic resistant bacteria, we must hurry to find new ways of treating infections that may arise from it. There are papers written on the importance of ownership when it comes to fighting against disease [@tomori2014winning]. By taking ownership of microbial communities found in certain areas, we can then make the commitment to maintain proper hygiene and cleanliness to avoid becoming infected by pathogenic organisms.
 
 # Figures
+
+```{r load-libraries}
+# Load packages for analysis
+library("ggplot2")
+library("dplyr")
+library("tidyr")
+library("readr")
+library("broom")
+library("knitr")
+library("lubridate")
+library("forcats")
+library("dada2")
+library("phyloseq")
+```
 
 ```{r read-in-culture-data}
 # read in the culture data from csv
@@ -364,6 +253,127 @@ culture_data %>%
 
 **Figure 5:** Maximum likelihood phylogeny with _Thermus aquaticus_ as an outgroup. Maximum Likelihood bootstrap value of 99.
 
+```{r load-data}
+# load in the saved phyloseq object to work with
+load("output/phyloseq_obj.Rda")
+```
+
+```{r alpha-diversity-metrics}
+# alpha diversity metrics
+plot_richness(phyloseq_obj,
+              x = "type",
+              measures = c("Shannon")) +
+  xlab("Type of sample") +
+  geom_boxplot() +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1))
+```
+
+**Figure 6.** According to Shannon Diversity Index, personal bathrooms and public restrooms have a similar species diversity and evenness mean. However, personal bathrooms have an overall higher species diversity and evenness compared to public restrooms. 
+
+```{r plot-of-taxa}
+##########################################
+# dplyr and ggplot analyses
+##########################################
+
+# melt phyloseq obj into a data frame for dplyr/ggplot
+# analysis and visualization
+melted_phyloseq <- psmelt(phyloseq_obj)
+
+# turn all factor columns into character columns for dplyr
+melted_phyloseq <- melted_phyloseq %>%
+  mutate_if(is.factor, as.character)
+
+# create a summary table of sequence counts for each Phylum
+melted_phyloseq %>%
+  group_by(Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                  na.rm = TRUE))
+# bar plot of taxa
+ggplot(melted_phyloseq,
+       aes(x = type,
+           y = Abundance,
+           color = Phylum,
+           fill = Phylum)) +
+  geom_col(position = position_fill()) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1)) +
+  xlab("Type of Sample") +
+  ylab("Number of Sequences") +
+  ggtitle("Number of Sequences")
+```
+
+**Figure 7:** The number of sequences found present within the samples organized by the phylum to which the organism belongs to. 
+
+```{r summary-table}
+# Create a summary table of sequence results for each Phylum and its abundance
+melted_phyloseq %>%
+  group_by(Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                na.rm = TRUE)) %>%
+  ggplot(aes(x = Phylum,
+             y = sum_abundance)) +
+  ggtitle("Phylum Abundance") +
+  labs(y = "Sum Abundance") +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+**Figure 8:** The overall abundance of organisms by phyla.
+
+```{r asv-richness-across-samples}
+melted_phyloseq %>%
+  filter(grepl("AS", Sample)) %>%
+  filter(Abundance > 0) %>%
+  group_by(type, Sample, Phylum) %>%
+  tally() %>%
+  ggplot(aes(x = Sample,
+             y = n,
+             fill = Phylum)) +
+  geom_col() +
+  facet_wrap(~type,
+             scales = "free_x")
+```
+
+**Figure 9:** Comparison of phylum abundance between personal bathrooms and public restrooms. 2P environmental sample site was not taken into consideration for this figure.
+
+```{r abundance-of-Acinetobacter} 
+melted_phyloseq %>%
+  filter(grepl("AS", Sample)) %>%
+  filter(Genus == "Acinetobacter") %>%
+  filter(Abundance > 0) %>%
+  group_by(Sample) %>%
+  summarize(sum_abund = sum(Abundance,
+                            na.rm = TRUE)) %>%
+  ggplot(aes(x = Sample,
+             y = sum_abund)) +
+  geom_col()
+```
+
+**Figure 10:** Abundance of _Acinetobacter_ across samples.
+
+```{r top-genera}
+melted_phyloseq %>%
+  filter(grepl("AS", Sample)) %>%
+  filter(Abundance > 0) %>%
+  group_by(Genus) %>%
+  summarize(sum_abund = sum(Abundance,
+                            na.rm = TRUE)) %>%
+  arrange(desc(sum_abund)) %>%
+  head(10) %>%
+  ggplot(aes(x = Genus,
+             y = sum_abund,)) +
+  geom_col() + 
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+**Figure 11:** Abundance of organisms present in samples by genus.
+
 # Tables
 
 | Sample   | DNA concentration (ng/uL) |   |   |   |
@@ -399,5 +409,24 @@ culture_data %>%
 | AS 3H       | Sequence failed                     | N/A         | N/A       | N/A              | N/A        |
 
 **Table 3:** BLAST result metrics which indicate the microorganisms found from my samples. AS 2P 1:10 and 3H 1:10 were failed sequences, however, I still considered them to be usable for BLAST. BLAST showed no match for the two samples. AS 3H was a failed sequence and did not undergo BLAST.
+
+|                                    | Reads In| Reads Out|
+|:-----------------------------------|--------:|---------:|
+|AS-1H_S10_L001_R1_001.fastq         |     6389|      6373|
+|AS-1P_S7_L001_R1_001.fastq          |     8816|      8799|
+|AS-2H_S11_L001_R1_001.fastq         |     4581|      4572|
+|AS-2P_S8_L001_R1_001.fastq          |       14|        12|
+|AS-3H_S12_L001_R1_001.fastq         |    10579|     10562|
+|AS-3P_S9_L001_R1_001.fastq          |     5808|      5803|
+|control-neg1_S79_L001_R1_001.fastq  |    10990|     10969|
+|control-neg2_S80_L001_R1_001.fastq  |     3290|      3279|
+|control-neg3_S81_L001_R1_001.fastq  |    13837|     13818|
+|control-neg4_S82_L001_R1_001.fastq  |     7825|      7811|
+|control-zymo1_S83_L001_R1_001.fastq |     5236|      5233|
+|control-zymo2_S84_L001_R1_001.fastq |     4139|      4134|
+|control-zymo3_S85_L001_R1_001.fastq |     8448|      8426|
+|control-zymo4_S86_L001_R1_001.fastq |     9287|      9271|
+
+**Table 4:** Number of sequences before and after trimming via DADA2 pipeline.
 
 # Sources Cited
