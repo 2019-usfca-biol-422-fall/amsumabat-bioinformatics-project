@@ -259,7 +259,7 @@ load("output/phyloseq_obj.Rda")
 ```
 
 ```{r alpha-diversity-metrics}
-# alpha diversity metrics
+# Shannon index to analyze the diversity and richness of my samples
 plot_richness(phyloseq_obj,
               x = "type",
               measures = c("Shannon")) +
@@ -290,7 +290,7 @@ melted_phyloseq %>%
   group_by(Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
                                   na.rm = TRUE))
-# bar plot of taxa
+# bar plot of taxa found within each sample
 ggplot(melted_phyloseq,
        aes(x = type,
            y = Abundance,
@@ -325,6 +325,7 @@ melted_phyloseq %>%
 **Figure 8:** The overall abundance of organisms by phyla.
 
 ```{r asv-richness-across-samples}
+# Barplot to portray phylum abundance across each sample
 melted_phyloseq %>%
   filter(grepl("AS", Sample)) %>%
   filter(Abundance > 0) %>%
@@ -343,6 +344,7 @@ melted_phyloseq %>%
 **Figure 9:** Comparison of phylum abundance between personal bathrooms and public restrooms. 2P environmental sample site was not taken into consideration for this figure.
 
 ```{r abundance-of-Acinetobacter} 
+# Abundance of Acinetobacter across samples
 melted_phyloseq %>%
   filter(grepl("AS", Sample)) %>%
   filter(Genus == "Acinetobacter") %>%
@@ -360,6 +362,7 @@ melted_phyloseq %>%
 **Figure 10:** Abundance of _Acinetobacter_ across samples.
 
 ```{r top-genera}
+# Bar plot to show total abundunce of genus
 melted_phyloseq %>%
   filter(grepl("AS", Sample)) %>%
   filter(Abundance > 0) %>%
