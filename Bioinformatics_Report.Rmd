@@ -286,11 +286,6 @@ melted_phyloseq <- psmelt(phyloseq_obj)
 melted_phyloseq <- melted_phyloseq %>%
   mutate_if(is.factor, as.character)
 
-# create a summary table of sequence counts for each Phylum
-melted_phyloseq %>%
-  group_by(Phylum) %>%
-  summarize(sum_abundance = sum(Abundance,
-                                  na.rm = TRUE))
 # bar plot of taxa found within each sample
 ggplot(melted_phyloseq,
        aes(x = type,
@@ -337,7 +332,7 @@ melted_phyloseq %>%
              fill = Phylum)) +
   geom_col() +
   ggtitle("Phylum Abundance Across Samples") +
-  ylab("Number of Organisms")
+  ylab("Number of Organisms") +
   facet_wrap(~type,
              scales = "free_x")
 ```
