@@ -267,7 +267,8 @@ plot_richness(phyloseq_obj,
   geom_boxplot() +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45,
-                                   hjust = 1))
+                                   hjust = 1)) +
+  ggtitle("Shannon Diversity Index")
 ```
 
 **Figure 6.** According to Shannon Diversity Index, personal bathrooms and public restrooms have a similar species diversity and evenness mean. However, personal bathrooms have an overall higher species diversity and evenness compared to public restrooms. 
@@ -289,7 +290,7 @@ melted_phyloseq <- melted_phyloseq %>%
 melted_phyloseq %>%
   group_by(Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
-                                  na.rm = TRUE)) %>%
+                                  na.rm = TRUE))
 # bar plot of taxa found within each sample
 ggplot(melted_phyloseq,
        aes(x = type,
@@ -314,7 +315,7 @@ melted_phyloseq %>%
                                 na.rm = TRUE)) %>%
   ggplot(aes(x = Phylum,
              y = sum_abundance)) +
-  ggtitle("Phylum Abundance") +
+  ggtitle("Overall Phylum Abundance") +
   labs(y = "Sum Abundance") +
   geom_col() +
   theme(axis.text.x = element_text(angle = 45,
@@ -335,7 +336,7 @@ melted_phyloseq %>%
              y = n,
              fill = Phylum)) +
   geom_col() +
-  ggtitle("Phylum Abundance") +
+  ggtitle("Phylum Abundance Across Samples") +
   ylab("Number of Organisms")
   facet_wrap(~type,
              scales = "free_x")
@@ -375,7 +376,7 @@ melted_phyloseq %>%
              y = sum_abund, )) +
   geom_col() +
   ylab("Sum Abundance") +
-  ggtitle("Genus Abundance") +
+  ggtitle("Overall Genus Abundance") +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
                                    vjust = 1))
