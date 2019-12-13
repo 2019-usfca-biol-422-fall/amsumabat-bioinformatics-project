@@ -289,7 +289,7 @@ melted_phyloseq <- melted_phyloseq %>%
 melted_phyloseq %>%
   group_by(Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
-                                  na.rm = TRUE))
+                                  na.rm = TRUE)) %>%
 # bar plot of taxa found within each sample
 ggplot(melted_phyloseq,
        aes(x = type,
